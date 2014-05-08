@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
+ 
+  namespace :koremita do
+    resources :movies ,only: [:index] do
+    end
+  end
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'koremita/movies#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

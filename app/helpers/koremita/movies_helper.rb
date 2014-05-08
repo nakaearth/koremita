@@ -1,0 +1,2 @@
+module Koremita::MoviesHelper
+end
