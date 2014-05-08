@@ -1,0 +1,137 @@
+have_func: checking for rb_thread_blocking_region()... -------------------- yes
+
+"/usr/bin/clang -o conftest -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/x86_64-darwin12.0 -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/ruby/backward -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/Users/mpapis/.sm/pkg/active/include -fPIC -mmacosx-version-min=10.6 -pipe conftest.c  -L. -L/Users/usr0200199/.rvm/rubies/ruby-2.1.0/lib -L. -L/Users/mpapis/.sm/pkg/active/lib -L/usr/lib -fPIC -Bstatic -fstack-protector   -arch x86_64   -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+ld: warning: directory not found for option '-L/Users/mpapis/.sm/pkg/active/lib'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"/usr/bin/clang -o conftest -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/x86_64-darwin12.0 -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/ruby/backward -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/Users/mpapis/.sm/pkg/active/include -fPIC -mmacosx-version-min=10.6 -pipe conftest.c  -L. -L/Users/usr0200199/.rvm/rubies/ruby-2.1.0/lib -L. -L/Users/mpapis/.sm/pkg/active/lib -L/usr/lib -fPIC -Bstatic -fstack-protector   -arch x86_64   -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+conftest.c:13:57: warning: 'rb_thread_blocking_region' is deprecated [-Wdeprecated-declarations]
+int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_thread_blocking_region; return 0; }
+                                                        ^
+/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/ruby/intern.h:870:18: note: 'rb_thread_blocking_region' declared here
+DEPRECATED(VALUE rb_thread_blocking_region(rb_blocking_function_t *func, void *data1,
+                 ^
+/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/x86_64-darwin12.0/ruby/config.h:114:52: note: expanded from macro 'DEPRECATED'
+#define DEPRECATED(x) __attribute__ ((deprecated)) x
+                                                   ^
+1 warning generated.
+ld: warning: directory not found for option '-L/Users/mpapis/.sm/pkg/active/lib'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_thread_blocking_region; return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for sys/select.h... -------------------- yes
+
+"/usr/bin/clang -E -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/x86_64-darwin12.0 -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/ruby/backward -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/Users/mpapis/.sm/pkg/active/include -fPIC -mmacosx-version-min=10.6 -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/select.h>
+/* end */
+
+--------------------
+
+have_header: checking for poll.h... -------------------- yes
+
+"/usr/bin/clang -E -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/x86_64-darwin12.0 -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/ruby/backward -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/Users/mpapis/.sm/pkg/active/include -fPIC -mmacosx-version-min=10.6 -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <poll.h>
+/* end */
+
+--------------------
+
+have_header: checking for sys/epoll.h... -------------------- no
+
+"/usr/bin/clang -E -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/x86_64-darwin12.0 -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/ruby/backward -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/Users/mpapis/.sm/pkg/active/include -fPIC -mmacosx-version-min=10.6 -pipe  conftest.c -o conftest.i"
+conftest.c:3:10: fatal error: 'sys/epoll.h' file not found
+#include <sys/epoll.h>
+         ^
+1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/epoll.h>
+/* end */
+
+--------------------
+
+have_header: checking for sys/event.h... -------------------- yes
+
+"/usr/bin/clang -E -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/x86_64-darwin12.0 -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/ruby/backward -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/Users/mpapis/.sm/pkg/active/include -fPIC -mmacosx-version-min=10.6 -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/event.h>
+/* end */
+
+--------------------
+
+have_header: checking for sys/queue.h... -------------------- yes
+
+"/usr/bin/clang -E -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/x86_64-darwin12.0 -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/ruby/backward -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/Users/mpapis/.sm/pkg/active/include -fPIC -mmacosx-version-min=10.6 -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/queue.h>
+/* end */
+
+--------------------
+
+have_header: checking for port.h... -------------------- no
+
+"/usr/bin/clang -E -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/x86_64-darwin12.0 -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/ruby/backward -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/Users/mpapis/.sm/pkg/active/include -fPIC -mmacosx-version-min=10.6 -pipe  conftest.c -o conftest.i"
+conftest.c:3:10: fatal error: 'port.h' file not found
+#include <port.h>
+         ^
+1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <port.h>
+/* end */
+
+--------------------
+
+have_header: checking for sys/resource.h... -------------------- yes
+
+"/usr/bin/clang -E -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/x86_64-darwin12.0 -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0/ruby/backward -I/Users/usr0200199/.rvm/rubies/ruby-2.1.0/include/ruby-2.1.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -O3 -I/Users/mpapis/.sm/pkg/active/include -fPIC -mmacosx-version-min=10.6 -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/resource.h>
+/* end */
+
+--------------------
+
