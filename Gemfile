@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
@@ -23,9 +24,6 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -48,21 +46,24 @@ gem "dalli"
 gem "whenever"
 gem "simple_form"
 group :development, :test do
-  gem "rspec-rails"
+  gem 'rspec-rails', '3.0.0.beta1'
   gem "rake_shared_context"
   gem "factory_girl_rails"
   gem "shoulda-matchers"
   gem "database_rewinder"
+  gem "rubocop", require: false
+  gem "rubocop-checkstyle_formatter", require: false
+  gem "guard"
+  gem "guard-rspec", " ~> 0.4.2"
+  gem "guard-spring"
 end
+gem "spring"
 
 group :development do
   gem "pry-rails"
   gem "pry-byebug"
   gem "pry-doc"
   gem "awesome_print"
-  gem "guard"
-  gem "guard-rspec", " ~> 0.4.2"
-  gem "guard-spring"
 end
 
 group :production do
@@ -74,3 +75,33 @@ end
 
 gem "heroku"
 gem "puma"
+
+# twitter bootstrap
+gem "twitter-bootstrap-rails"
+
+# model info
+gem 'annotate', :git =>'https://github.com/ctran/annotate_models'
+
+# td
+gem 'td'
+gem 'td-logger'
+
+# newrelic
+gem 'newrelic_rpm'
+
+gem 'active_decorator'
+
+# todo list generates
+gem 'watson-ruby'
+
+#setting
+gem 'settingslogic'
+
+# bower
+gem 'bower-rails', '~> 0.7.1'
+
+# cache_digest
+gem 'cache_digests'
+
+# ruby 2.0 debug tool
+gem 'byebug'
