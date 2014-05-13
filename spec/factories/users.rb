@@ -15,6 +15,10 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
+#  provider               :string(255)      default(""), not null
+#  uid                    :string(255)      default(""), not null
+#  name                   :string(255)      default(""), not null
+#  token                  :strging          default(""), not null
 #
 # Indexes
 #
@@ -27,6 +31,11 @@
 FactoryGirl.define do
   factory :current_user, class: User do
     email 'test@gmail.com'
-    password 'test1234'    
+    password 'test1234'
+    name 'test_user'
+    uid '112233aabbcc'
+    token 'rwgitewija1j214i912jj14i24j1jffkajrtuo1'
+    provider 'facebook'
+
   end
 end

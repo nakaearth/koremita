@@ -15,6 +15,10 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
+#  provider               :string(255)      default(""), not null
+#  uid                    :string(255)      default(""), not null
+#  name                   :string(255)      default(""), not null
+#  token                  :strging          default(""), not null
 #
 # Indexes
 #
@@ -35,6 +39,9 @@ describe User do
  it { expect have_many(:movies) }
  it { expect validate_presence_of(:email) }
  it { expect validate_presence_of(:password) }
+ it { expect validate_presence_of(:provider) }
+ it { expect validate_presence_of(:uid) }
+ it { expect validate_presence_of(:name) }
  it { expect(current_user.movies.size).to eql(4)  }  
 
  describe "user モデル属性チェック" do

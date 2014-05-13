@@ -56,7 +56,7 @@ group :development, :test do
   gem "guard-rspec", " ~> 0.4.2"
   gem "guard-spring"
 end
-gem "spring"
+gem "spring" , '1.1.2'
 
 group :development do
   gem "pry-rails"

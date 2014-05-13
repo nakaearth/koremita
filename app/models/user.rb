@@ -15,6 +15,10 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
+#  provider               :string(255)      default(""), not null
+#  uid                    :string(255)      default(""), not null
+#  name                   :string(255)      default(""), not null
+#  token                  :strging          default(""), not null
 #
 # Indexes
 #
@@ -26,9 +30,13 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   has_many :movies
   has_many :youtubs
+
+  validates :provider, presence: true 
+  validates :name, presence: true 
+  validates :uid, presence: true 
 
 end
