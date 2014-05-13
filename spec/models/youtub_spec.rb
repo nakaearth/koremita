@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: youtubs
+#
+#  id         :integer          not null, primary key
+#  title      :string(255)
+#  url        :string(255)
+#  movie_id   :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 require 'spec_helper'
 
 describe Youtub do
