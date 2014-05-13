@@ -1,3 +1,2 @@
 --color
 --format documentation 
---format ParalellTest::Rspec::FailuresLogger --out tmp/fail_spec.log
