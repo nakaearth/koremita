@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
  
+  get 'top/index',  as: "user_root"
+
   namespace :koremita do
     resources :movies ,only: [:index] do
     end
@@ -10,8 +12,8 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'koremita/movies#index'
-
+  root 'top#index'
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

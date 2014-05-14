@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+    :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   has_many :movies
   has_many :youtubs
@@ -38,5 +38,19 @@ class User < ActiveRecord::Base
   validates :provider, presence: true 
   validates :name, presence: true 
   validates :uid, presence: true 
+
+  def self.find_for_facebook_oauth(auth)
+    @user = User.find_by(provider: auth.provider, uid: auth.uid)
+    
+    unless user
+      @user = User.create( name:     auth.extra.raw_info.name,
+                         provider: auth.provider,
+                         uid:      auth.uid,
+                         email:    auth.info.email,
+                         token:    auth.credentials.token,
+                         password: Devise.friendly_token[0,20] )
+    end
+    @user
+  end
 
 end
