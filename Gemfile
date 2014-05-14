@@ -55,6 +55,7 @@ group :development, :test do
   gem "guard"
   gem "guard-rspec", " ~> 0.4.2"
   gem "guard-spring"
+  gem "guard-rubocop"
 end
 gem "spring" , '1.1.2'
 

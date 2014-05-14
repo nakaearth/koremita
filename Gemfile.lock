@@ -104,6 +104,9 @@ GEM
       thor (>= 0.18.1)
     guard-rspec (0.4.5)
       guard (>= 0.4.0)
+    guard-rubocop (1.1.0)
+      guard (~> 2.0)
+      rubocop (~> 0.20)
     guard-spring (0.0.4)
       guard
       spring
@@ -359,6 +362,7 @@ DEPENDENCIES
   foreman
   guard
   guard-rspec (~> 0.4.2)
+  guard-rubocop
   guard-spring
   heroku
   jbuilder (~> 2.0)
