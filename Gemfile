@@ -105,3 +105,6 @@ gem 'cache_digests'
 
 # ruby 2.0 debug tool
 gem 'byebug'
+
+# itunes api
+gem 'itunes-search-api'
