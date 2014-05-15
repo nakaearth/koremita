@@ -1,14 +1,14 @@
 require 'itunes-search-api'
 
 module Api
-  class ItunesApi
-    def initialize(category, country)
-      @category = category
+  class ItunesSearch
+    def initialize(country , category)
       @country  = country
+      @category = category
     end
 
     def search
-
+      ITunesSearchAPI.search(country:  @country, media:  @category)
     end
   end
 end
