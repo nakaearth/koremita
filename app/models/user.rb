@@ -35,8 +35,7 @@ class User < ActiveRecord::Base
   has_many :movies
   has_many :youtubs
 
-  validates :provider, presence: true 
-  validates :name, presence: true 
-  validates :uid, presence: true 
-
+  validates :provider, presence: true
+  validates :name, presence: true
+  validates :uid, presence: true
 end
