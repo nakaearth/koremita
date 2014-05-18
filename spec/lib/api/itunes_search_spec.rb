@@ -2,11 +2,11 @@ require 'spec_helper'
 require 'api/itunes_search'
 
 describe Api::ItunesSearch do
-  
+
   describe "APIをたたいて映画情報がとれるか" do
     context "映画一覧を取得" do
       before do
-        @api = Api::ItunesSearch.new('JP', 'movie')
+        @api = Api::ItunesSearch.new('star', 'JP', 'movie')
         @result = @api.search
         p @result
       end
@@ -15,4 +15,3 @@ describe Api::ItunesSearch do
   end
 
 end
-

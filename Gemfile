@@ -108,3 +108,6 @@ gem 'byebug'
 
 # itunes api
 gem 'itunes-search-api'
+
+# API versio管理
+gem 'versioncake'

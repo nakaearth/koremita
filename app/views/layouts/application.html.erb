@@ -52,6 +52,12 @@
               <li><%= link_to "Link1", "/path1"  %></li>
               <li><%= link_to "Link2", "/path2"  %></li>
               <li><%= link_to "Link3", "/path3"  %></li>
+              <% if user_signed_in? %>
+                <%= current_user.name %>
+              <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete  %></li>
+             <% else %>
+               <li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %></li>
+             <% end %> 
             </ul>
           </div><!--/.nav-collapse -->
         </div>
