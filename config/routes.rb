@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   namespace :koremita do
     resources :movies ,only: [:index] do
+      collection do
+        get 'my_movies'
+      end
     end
   end
 
