@@ -18,6 +18,7 @@ module Koremita
     end
 
     def create
+      # todo :serviceクラスに登録部分を置き換える
       @movie = Movie.new(movie_params)
       if @movie.save
         redirect_to action: :show, notice: 'movie data rec'
