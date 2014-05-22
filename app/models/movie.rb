@@ -19,5 +19,5 @@ class Movie < ActiveRecord::Base
 
   validates :title , presence: true, length: { maximum: 80 }
   validates :description, presence: true, length: { maximum: 500 }
-
+  validates :image_url , { allow_blank: true, format: URI::regexp(%w(http https)) }
 end
