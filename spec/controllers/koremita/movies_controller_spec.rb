@@ -33,7 +33,17 @@ describe Koremita::MoviesController do
      it { expect(render_template 'my_movies') }
      it { expect(get: 'koremita/movies/my_movies').to route_to(controller: 'koremita/movies', action: 'my_movies') }
    end
-
  end
+
+  describe "Post" 'create method' do
+    context "is invalid inupt paramaeter" do
+      before do
+        @user = current_user
+        allow(controller).to receive(:current_user) { @user }
+      end
+
+      it { response.should be_success }
+    end
+  end
 
 end
