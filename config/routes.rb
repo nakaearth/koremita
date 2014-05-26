@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'top/index',  as: "user_root"
 
   namespace :koremita do
-    resources :movies ,only: [:index] do
+    resources :movies ,only: [:index, :show,  :new, :create] do
       collection do
         get 'my_movies'
       end
