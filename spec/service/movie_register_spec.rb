@@ -15,11 +15,10 @@ describe MovieRegister do
     context "movieとyoubu両方登録" do
       before do
         service = MovieRegister.new(current_user)
-        params = { movie: { title: 'test movie', image_url: 'http://test.com/hoge.jpg',
-                           description: 'test test test', rate: 100 },
-                    youtub: { title: 'test youtub', url: 'http://hogehoge.jp/test.mp3'}
-                  }
-        service.regist_movie params
+        movie_params = { title: 'test movie', image_url: 'http://test.com/hoge.jpg',
+                           description: 'test test test', rate: 100 }
+        youtub_params =  { title: 'test youtub', url: 'http://hogehoge.jp/test.mp3'}
+        service.regist_movie(movie_params, youtub_params)
       end
       it "登録されたmovieの数が増えている" do
         expect(current_user.movies.size).to eql(5)

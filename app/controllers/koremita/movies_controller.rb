@@ -19,9 +19,10 @@ module Koremita
 
     def create
       # todo :serviceクラスに登録部分を置き換える
-      @movie = Movie.new(movie_params)
-      if @movie.save
-        redirect_to action: :show, notice: 'movie data rec'
+      register =  MovieRegister.new(current_user)
+      movie = register.regist_movie(movie_params , movie_youtub_params)
+      if movie
+        redirect_to action: :show, id: movie.id,  notice: 'movie data rec'
       else
         render action: :new
       end
@@ -30,6 +31,10 @@ module Koremita
     private
     def movie_params
       params.require(:movie).permit(:title, :image_url, :description, :view_flag, :rate)   
+    end
+
+    def movie_youtub_params
+      params.require(:youtub).permit(:title, :url)   
     end
   end
 end
