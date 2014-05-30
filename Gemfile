@@ -56,6 +56,7 @@ group :development, :test do
   gem "guard-rspec", " ~> 0.4.2"
   gem "guard-spring"
   gem "guard-rubocop"
+  gem 'terminal-notifier-guard'
 end
 gem "spring" , '1.1.2'
 
@@ -111,3 +112,7 @@ gem 'itunes-search-api'
 
 # API versio管理
 gem 'versioncake'
+
+# youtub api
+gem 'youtube_it'
+

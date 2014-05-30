@@ -30,7 +30,7 @@ guard 'spring', :rspec_cli => '--color' do
   end
 end
 
-guard :rubocop do
+guard :rubocop, notification: true  do
   watch(%r{.+\.rb$})
-  watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
+  watch(%r{.+\.rake$}) 
 end
