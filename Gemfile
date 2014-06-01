@@ -77,9 +77,6 @@ end
 gem "heroku"
 gem "puma"
 
-# twitter bootstrap
-gem "twitter-bootstrap-rails"
-
 # model info
 gem 'annotate', :git =>'https://github.com/ctran/annotate_models'
 

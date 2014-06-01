@@ -31,6 +31,7 @@ guard 'spring', :rspec_cli => '--color' do
 end
 
 guard :rubocop, notification: true  do
-  watch(%r{.+\.rb$})
-  watch(%r{.+\.rake$}) 
+  watch(%r{^app/(.+)\.rb$})
+  watch(%r{^lib/(.+)\.rb$})
+  watch(%r{^spec/(.+)\.rb$})
 end
