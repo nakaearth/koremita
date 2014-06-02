@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140513141313) do
+ActiveRecord::Schema.define(version: 20140602074107) do
+
+  create_table "auth_providers", force: true do |t|
+    t.integer  "user_id"
+    t.string   "provider",    null: false
+    t.string   "uid",         null: false
+    t.string   "screen_name"
+    t.string   "image_path"
+    t.string   "token"
+    t.string   "secret"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "auth_providers", ["user_id"], name: "index_auth_providers_on_user_id"
 
   create_table "movies", force: true do |t|
     t.string   "title"
@@ -24,8 +38,14 @@ ActiveRecord::Schema.define(version: 20140513141313) do
     t.datetime "updated_at"
   end
 
-# Could not dump table "users" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
   create_table "youtubs", force: true do |t|
     t.string   "title"
