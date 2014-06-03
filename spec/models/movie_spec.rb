@@ -16,11 +16,12 @@ require 'spec_helper'
 
 describe Movie do
 
-  let!(:current_user) { FactoryGirl.create(:current_user) }
-  let!(:test_movie) { FactoryGirl.create(:test_movie, user: current_user) }
-  let!(:test_movie2) { FactoryGirl.create(:test_movie, user: current_user) }
-  let!(:test_movie3) { FactoryGirl.create(:test_movie, user: current_user) }
-  let!(:test_movie4) { FactoryGirl.create(:test_movie, user: current_user) }
+  let!(:current_user) { create(:current_user) }
+  let!(:provider) { create(:auth_provider, user: current_user) }
+  let!(:test_movie) { create(:test_movie, user: current_user) }
+  let!(:test_movie2) { create(:test_movie, user: current_user) }
+  let!(:test_movie3) { create(:test_movie, user: current_user) }
+  let!(:test_movie4) { create(:test_movie, user: current_user) }
 
   describe "have a feature" do
     context "have a relation to user class" do
