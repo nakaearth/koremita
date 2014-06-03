@@ -3,27 +3,39 @@ require 'spec_helper'
 describe Koremita::MoviesController do
   render_views
 
-  let!(:current_user) { FactoryGirl.create(:current_user) }
-  let!(:test_movie1) { FactoryGirl.create(:test_movie, user: current_user) }
-  let!(:test_movie2) { FactoryGirl.create(:test_movie, user: current_user) }
+  let!(:current_user) { create(:current_user) }
+  let!(:auth_provider) { create(:auth_provider, user: current_user) }
+  let!(:test_movie1) { create(:test_movie, user: current_user) }
+  let!(:test_movie2) { create(:test_movie, user: current_user) }
 
-  describe "GET 'index' method" do
-    context "index method test" do
+  describe 'ユーザの映画一覧情報を表示するindexメソッドを呼ぶ' do
+    context 'ログインしているばあい' do
       before do
         @user = current_user
-        allow(controller).to receive(:current_user) { @user }
+        allow(controller).to receive(:current_user) { current_user }
+        allow(controller).to receive(:login?) { true }
         get 'index'
       end
+      it 'indexページに遷移する' do
+        expect(render_template('index'))
+      end
       it "returns http success" do
-        response.should be_success
+        expect(response.status).to eql(200)
+      end
+    end
+
+    context '未ログインの場合' do
+      it 'top#indexに遷移する' do
+        expect(render_template('top#index'))
       end
     end
   end
 
-  describe "Get 'my_movies' method" do
-    context "current_userのmoviesについて" do
+  describe 'ログインしたユーザの映画一覧情報を表示するmy_moviesメソッドを呼ぶ' do
+    context 'ログインしている場合' do
       before do
         allow(controller).to receive(:current_user) { current_user }
+        allow(controller).to receive(:login?) { true }
         get 'my_movies'
       end
       it { response.should be_success }
@@ -35,18 +47,18 @@ describe Koremita::MoviesController do
     end
   end
 
-  describe "Post" 'create method' do
-    context "is invalid inupt paramaeter" do
+  describe '映画情報を登録する時に呼ばれるcreate' do
+    context '渡されるパラメータが不正の場合' do
       before do
         allow(controller).to receive(:current_user) { current_user }
         params =  { movie: { title: 'test movie', image_url: 'http://test.com/hoge.jpg',  description: 'test test test', rate: 100 }, youtub: { title: 'test youtub', url: 'http://hogehoge.jp/test.mp3' } }
         post :create, params
       end
 
-      it "response status is 302." do
-        expect(response.status).to eql(302) 
+      it 'response status is 302.' do
+        expect(response.status).to eql(302)
       end
-      it "render file is show" do
+      it 'render file is show' do
         expect(render_template 'show')
       end
     end

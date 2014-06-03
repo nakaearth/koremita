@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
  
-  get 'top/index',  as: "user_root"
+  #facebook login 
+  get "/:provider/login"  => "sessions#new"
+  get "/logout" => "sessions#destroy"
+  get "/auth/:provider/callback" => "sessions#create" unless Rails.env.development?
+  post "/auth/:provider/callback" => "sessions#create" if Rails.env.development?
+  get "/auth/failure" => "sessions#failuer"
 
   namespace :koremita do
     resources :movies ,only: [:index, :show,  :new, :create] do

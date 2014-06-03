@@ -16,18 +16,16 @@
 require 'spec_helper'
 
 describe User do
- let!(:current_user) { FactoryGirl.create(:current_user) }
- let!(:test_movie1) { FactoryGirl.create(:test_movie, user: current_user) }
- let!(:test_movie2) { FactoryGirl.create(:test_movie, user: current_user) }
- let!(:test_movie3) { FactoryGirl.create(:test_movie, user: current_user) }
- let!(:test_movie4) { FactoryGirl.create(:test_movie, user: current_user) }
+ let!(:current_user) { create(:current_user) }
+ let!(:auth_provider) { create(:auth_provider, user: current_user) }
+ let!(:test_movie1) { create(:test_movie, user: current_user) }
+ let!(:test_movie2) { create(:test_movie, user: current_user) }
+ let!(:test_movie3) { create(:test_movie, user: current_user) }
+ let!(:test_movie4) { create(:test_movie, user: current_user) }
 
   # モデルの定義をチェック
  it { expect have_many(:movies) }
  it { expect validate_presence_of(:email) }
- it { expect validate_presence_of(:password) }
- it { expect validate_presence_of(:provider) }
- it { expect validate_presence_of(:uid) }
  it { expect validate_presence_of(:name) }
  it { expect(current_user.movies.size).to eql(4)  }  
 
@@ -38,9 +36,6 @@ describe User do
      end
      it "email address" do
        expect(@user.email).to eql('test@gmail.com') 
-     end
-     it "password check" do
-       expect(@user.password).to eql('test1234')
      end
    end
  end

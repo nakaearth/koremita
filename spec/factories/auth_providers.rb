@@ -22,5 +22,11 @@
 
 FactoryGirl.define do
   factory :auth_provider do
+    provider 'facebook'
+    uid SecureRandom.urlsafe_base64(124)
+    screen_name 'test_name'
+    image_path 'http://test.image.url/test.jpg'
+    token '123245aaaaaa'
+    secret SecureRandom.urlsafe_base64(124)
   end
 end

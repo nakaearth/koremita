@@ -1,5 +1,5 @@
 class TopController < ApplicationController
-  skip_before_filter  :authenticate_user!, only: :index
+  skip_before_filter  :login?, only: :index
   
   def index
   end
