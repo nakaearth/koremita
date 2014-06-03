@@ -27,7 +27,7 @@ describe User do
  it { expect have_many(:movies) }
  it { expect validate_presence_of(:email) }
  it { expect validate_presence_of(:name) }
- it { expect(current_user.movies.size).to eql(4)  }  
+ it { expect(current_user.movies.size).to eql(4) }
 
  describe "user モデル属性チェック" do
    context "ログイン後" do
@@ -35,7 +35,7 @@ describe User do
        @user = current_user
      end
      it "email address" do
-       expect(@user.email).to eql('test@gmail.com') 
+       expect(@user.email).to eql('test@gmail.com')
      end
    end
  end

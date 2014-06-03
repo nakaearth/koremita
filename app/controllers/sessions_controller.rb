@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     redirect_to '/auth/' + (Rails.env.production? ? params[:provider] : 'developer')
   end
 
-  def create 
+  def create
     auth  = request.env["omniauth.auth"]
     service = Users::Facebook.new(auth)
     user = service.find_user_by_provider_and_uid || service.create_account
@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     redirect_to controller: 'koremita/top', action: 'index', notice:'login successfully.'
   end
 
-  def destroy 
+  def destroy
     session[:user_id] = nil
     redirect_to controller: 'koremita/top', action: 'index', notice:'login successfully.'
   end

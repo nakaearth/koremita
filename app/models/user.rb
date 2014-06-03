@@ -22,6 +22,5 @@ class User < ActiveRecord::Base
   has_many :auth_providers
 
   validates :email, presence: true , format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
-  validates :name, presence: true 
-
+  validates :name, presence: true
 end
