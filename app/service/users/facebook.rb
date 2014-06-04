@@ -1,5 +1,7 @@
+# coding: utf-8
+
 module Users
-  class Facebook
+  class Facebook < UserRegister
 
     def initialize(auth)
       @auth = auth
