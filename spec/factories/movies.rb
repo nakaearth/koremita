@@ -11,6 +11,7 @@
 #  user_id     :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  category    :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
@@ -22,5 +23,6 @@ FactoryGirl.define do
     description "test test test test"
     view_flag 1
     rate 1
+    category 'drama'
   end
 end

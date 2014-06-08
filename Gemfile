@@ -111,3 +111,5 @@ gem 'versioncake'
 # youtub api
 gem 'youtube_it'
 
+# css fremework compass
+gem 'compass-rails'

@@ -1,3 +1,59 @@
 // Place all the styles related to the koremita/movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.movie_list {
+  position: relative;
+  text-align: left;
+  font-weight: bold;
+  border: 2px solid #333333;
+  background-color: #FFFFFF;
+  vertical-align: text-top;
+  height: 1000px;
+  overflow: visible;  
+  padding: 70px;
+  margin: 80px;
+  z-index: 1;
+  -webkit-border-radius: 10px;/* Safari、Google Chrome */
+  -moz-border-radius: 10px;/* Firefox */
+}
+.movie {
+  background-color: #FFFFDB;
+  border: 1px solid #333333;
+  font-size: 10pt;
+  width: 400px;
+  margin: 3px;
+  float: left;
+  cursor: move;
+  padding: 5px;
+  margin: 5px;
+  -webkit-border-radius: 10px;/* Safari、Google Chrome */
+  -moz-border-radius: 10px;/* Firefox */
+}
+
+@mixin movie_category($category) {
+  @if $category == 'drama' {
+    font-size: 9px;
+    background-color: #67BA37;
+  }@else if $category == 'sf' {
+    font-size: 9px;
+    background-color: #9DB1FF;
+  }@else if $category == 'comedy' {
+    font-size: 9px;
+    background-color: #FF3333;
+  }@else if $category == 'love' {
+    font-size: 9px;
+    background-color: #FF3333;
+  }@else if $category == 'animation' {
+    font-size: 9px;
+    background-color: #FF3333;
+  }@else {
+    font-size: 9px;
+  }
+}
+
+.movie_category_drama { @include movie_category('drama'); }
+.movie_category_sf { @include movie_category('sf'); }
+.movie_category_comedy { @include movie_category('comedy'); }
+.movie_category_love { @include movie_category('love'); }
+.movie_category_animation { @include movie_category('animation'); }
+

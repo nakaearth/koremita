@@ -11,7 +11,9 @@
 #  user_id     :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  category    :string(255)
 #
+
 require 'spec_helper'
 
 describe Movie do
@@ -23,21 +25,23 @@ describe Movie do
   let!(:test_movie3) { create(:test_movie, user: current_user) }
   let!(:test_movie4) { create(:test_movie, user: current_user) }
 
-  describe "have a feature" do
+  describe "幾つかのテーブルと関連を持っている" do
     context "have a relation to user class" do
       it { expect belong_to(:users) }
     end
+  end
 
-    context "is valid without title" do
+  describe "入力チェックをする" do
+    context "titleは必須" do
       it { expect validate_presence_of(:title) }
     end
 
-    context "is valid without description" do
+    context "descriptionは必須" do
       it { expect validate_presence_of(:desription) }
     end
   end
 
-  describe "check the image url format" do
+  describe "image urlのフォーマットをチェック"  do
     before do
       @movie = test_movie
       @movie.image_url = "htt://hogehoge.test.jp/image.jpg"
