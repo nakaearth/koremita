@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     user = service.find_user_by_provider_and_uid || service.create_account
     session[:user_id] = user.id
     logger.info user
-    redirect_to controller: 'koremita/top', action: 'index', notice:'login successfully.'
+    redirect_to controller: 'top', action: 'index', notice:'login successfully.'
   end
 
   def destroy

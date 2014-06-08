@@ -11,6 +11,7 @@
 #  user_id     :integer
 #  created_at  :datetime
 #  updated_at  :datetime
+#  category    :string(255)
 #
 
 class Movie < ActiveRecord::Base

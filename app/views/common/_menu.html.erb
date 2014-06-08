@@ -1,4 +1,5 @@
-<p class="navbar-text pull-right">
+<menu>
+  <div class='login_user_info'>
 <% if current_user %>
   Logged in as <strong><%= current_user.email %></strong>.
   <%= image_tag src: "#{current_user.auth_providers[0].image_path}", size: '40x40' %>
@@ -6,3 +7,8 @@
 <% else %>
   <%= link_to "新規登録", "/facebook/login"  %> |
 <% end %>
+  </div>
+  <div class='contents_menu' >
+    <%= link_to_unless_current '映画一覧', { action: 'index', controller: 'koremita/movies' } %> &nbsp;&nbsp;|
+  </div>
+</menu>
