@@ -46,6 +46,7 @@ group :development, :test do
   gem 'rspec-rails', '3.0.0.beta1'
   gem "rake_shared_context"
   gem 'capybara'
+  gem 'selenium-webdriver'
   gem "factory_girl_rails"
   gem "shoulda-matchers"
   gem "database_rewinder"
@@ -56,6 +57,7 @@ group :development, :test do
   gem "guard-spring"
   gem "guard-rubocop"
   gem 'terminal-notifier-guard'
+  gem "parallel_tests"
 end
 gem "spring" , '1.1.2'
 
