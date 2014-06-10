@@ -1,7 +1,7 @@
 <div id="<%=movie.id %>" class="movie">
   <div id="movie_menu" class="movie_category_<%=movie.category %>>
-    <%= link_to '詳細', movie %>
+    <%= link_to '詳細', { action: :show, id: movie.id } %>
   </div>
-  <%= @movie.title %>
+  <%= movie.title %>
   <br/>
 </div>

@@ -48,7 +48,7 @@ describe Koremita::MoviesController do
   end
 
   describe '映画情報を登録する時に呼ばれるcreate' do
-    context '渡されるパラメータが不正の場合' do
+    context '値がちゃんと入力された場合' do
       before do
         allow(controller).to receive(:current_user) { current_user }
         params =  { movie: { title: 'test movie', image_url: 'http://test.com/hoge.jpg',  description: 'test test test', rate: 100 }, youtub: { title: 'test youtub', url: 'http://hogehoge.jp/test.mp3' } }
@@ -60,6 +60,35 @@ describe Koremita::MoviesController do
       end
       it 'render file is show' do
         expect(render_template 'show')
+      end
+    end
+
+    context '渡されるパラメータが不正の場合(title未入力)' do
+      before do
+        allow(controller).to receive(:current_user) { current_user }
+        params =  { movie: { image_url: 'http://test.com/hoge.jpg',  description: 'test test test', rate: 100 }, youtub: { title: 'test youtub', url: 'http://hogehoge.jp/test.mp3' } }
+        post :create, params
+      end
+      it '入力画面に遷移する' do
+        expect(render_template 'new')
+      end
+
+      it '入力エラーを表示' do
+        expect(assigns(:movie).errors.empty?).not_to be_true
+      end
+    end
+    context '渡されるパラメータが不正の場合(description未入力)' do
+      before do
+        allow(controller).to receive(:current_user) { current_user }
+        params =  { movie: { title: 'test_title' , image_url: 'http://test.com/hoge.jpg', rate: 100 }, youtub: { title: 'test youtub', url: 'http://hogehoge.jp/test.mp3' } }
+        post :create, params
+      end
+      it '入力画面に遷移する' do
+        expect(render_template 'new')
+      end
+
+      it '入力エラーを表示' do
+        expect(assigns(:movie).errors.empty?).not_to be_true
       end
     end
   end
