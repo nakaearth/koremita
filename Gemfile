@@ -57,6 +57,7 @@ group :development, :test do
   gem "guard-spring"
   gem "guard-rubocop"
   gem 'terminal-notifier-guard'
+  gem "parallel_tests"
 end
 gem "spring" , '1.1.2'
 
