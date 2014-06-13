@@ -50,7 +50,7 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "shoulda-matchers"
   gem "database_rewinder"
-  gem "rubocop", require: false
+  gem "rubocop", '~> 0.23',  require: false
   gem "rubocop-checkstyle_formatter", require: false
   gem "guard"
   gem "guard-rspec", " ~> 0.4.2"
