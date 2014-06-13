@@ -9,7 +9,7 @@ module Koremita
     end
 
     def show
-      @movie = Movie.find(params[:id])
+      @movie = MovieDecorator.find(params[:id])
     end
 
     def new

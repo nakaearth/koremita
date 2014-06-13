@@ -5,10 +5,13 @@
   <%= image_tag src: "#{current_user.auth_providers[0].image_path}", size: '40x40' %>
   <%= link_to "ログアウト", logout_path  %>
 <% else %>
-  <%= link_to "新規登録", "/facebook/login"  %> |
+  <%= link_to "Facebookでログイン", "/facebook/login"  %> |
 <% end %>
   </div>
   <div class='contents_menu' >
     <%= link_to_unless_current '映画一覧', { action: 'index', controller: 'koremita/movies' } %> &nbsp;&nbsp;|
+  <% if current_user %>
+    <%= link_to_unless_current '映画登録', { action: 'new', controller: 'koremita/movies' } %> &nbsp;&nbsp;|
+  <% end %>
   </div>
 </menu>

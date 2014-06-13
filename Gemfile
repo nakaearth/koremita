@@ -66,6 +66,7 @@ group :development do
   gem "pry-byebug"
   gem "pry-doc"
   gem "awesome_print"
+  gem 'better_errors'
 end
 
 group :production do
@@ -87,8 +88,6 @@ gem 'td-logger'
 
 # newrelic
 gem 'newrelic_rpm'
-
-gem 'active_decorator'
 
 # todo list generates
 gem 'watson-ruby'
@@ -116,3 +115,5 @@ gem 'youtube_it'
 
 # css fremework compass
 gem 'compass-rails'
+
+gem 'draper'
