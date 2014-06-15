@@ -1,7 +1,8 @@
 module Koremita
   class MoviesController < ContentsController
     def index
-      @movies = Movie.page(params[:page]).per(20)
+      # @movies = Movie.page(params[:page]).per(20)
+      @movies = MovieDecorator.page(params[:page]).per(20)
     end
 
     def my_movies
@@ -17,7 +18,6 @@ module Koremita
     end
 
     def create
-      # todo :serviceクラスに登録部分を置き換える
       register =  MovieRegister.new(current_user)
       movie = register.regist_movie(movie_params , movie_youtub_params)
       if movie
