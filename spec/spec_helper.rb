@@ -7,6 +7,7 @@ require 'rspec/autorun'
 require 'factory_girl'
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'selenium-webdriver'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -25,8 +26,11 @@ Capybara.default_driver = :selenium
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Rails.application.routes.url_helpers
+  config.include Capybara::DSL
+  config.include Capybara::RSpecMatchers, :type => :request
+
   config.before :suite do
-    FactoryGirl.reload
+   FactoryGirl.reload
     DatabaseRewinder.clean_all
 
     OmniAuth.config.test_mode = true
@@ -40,19 +44,18 @@ RSpec.configure do |config|
           image: 'http://example.com/test.jpg'
         }
     })
+    omniauth_hash = { 'uid' => '12345', 'nickname' => 'testuser', 'credentials' => { 'token' => 'umad', 'secret' => 'bro?' } }
+    OmniAuth.config.add_mock(:facebook, omniauth_hash.merge({'nickname' => 'Mr Herpy Derpy Pants'}))
   end
 
   config.after :each do
     DatabaseRewinder.clean
   end
-
+  
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   config.use_transactional_fixtures = true
 
   config.infer_base_class_for_anonymous_controllers = false
-  
-  config.include Capybara::DSL
-
   config.order = "random"
 end
