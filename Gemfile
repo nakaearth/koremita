@@ -45,7 +45,7 @@ gem "simple_form"
 group :development, :test do
   gem 'rspec-rails', '3.0.0.beta1'
   gem "rake_shared_context"
-  gem 'capybara'
+  gem 'capybara', '~> 2.2.1'
   gem 'selenium-webdriver'
   gem "factory_girl_rails"
   gem "shoulda-matchers"
