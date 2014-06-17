@@ -181,10 +181,6 @@ ja:
       full_messages:
         format: "%{attribute}%{message}"
     attributes:
-      photo:
+      movie:
         title: タイトル 
-        description: 説明
-        album_id: アルバム
-      album:
-        title: タイトル
-        description: 説明
+        description: 概要
