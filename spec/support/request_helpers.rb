@@ -26,12 +26,7 @@ module RequestHelpers
         }
       )
     when :twitter
-      OmniAuth.config.add_mock(service,
-        { info: {
-            nickname: "#{service.to_s}_oauth_user"
-          }
-        }
-      )
+      OmniAuth.config.add_mock(service, { info: { nickname: "#{service.to_s}_oauth_user" } } )
     end
  
     OmniAuth.config.mock_auth[service]
