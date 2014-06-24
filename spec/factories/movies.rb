@@ -26,3 +26,4 @@ FactoryGirl.define do
     category 'drama'
   end
 end
+
