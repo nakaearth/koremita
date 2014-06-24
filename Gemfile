@@ -117,4 +117,5 @@ gem 'youtube_it'
 # css fremework compass
 gem 'compass-rails'
 
-gem 'draper'
+# decorator
+gem 'active_decorator'
