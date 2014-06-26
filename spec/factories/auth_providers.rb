@@ -29,4 +29,12 @@ FactoryGirl.define do
     token '123245aaaaaa'
     secret SecureRandom.urlsafe_base64(124)
   end
+
+  trait :facebook do
+    provider 'facebook'
+  end
+
+  trait :developer do
+    provider 'developer'
+  end
 end
