@@ -8,14 +8,19 @@ describe 'ユーザがfacebookログインしている', type: :feature do
   context 'トップページに遷移して映画一覧クリックした時' do
     before do
       ApplicationController.any_instance.stub(:current_user).and_return(current_user)
-      visit root_path
-#      click_link 'Facebookでログイン'
-      click_link '映画一覧'
     end
     it '映画一覧画面が表示' do
-      expect(page.current_path).to eq '/koremita/movies'
+      visit root_path
+      expect(page).to have_content '映画一覧'
+      click_link '映画一覧'
+      page.save_screenshot 'movie_screenshot1.png'
+      expect(page.current_path).to eql '/'
+      # expect(page.current_path).to eql '/koremita/movies'
     end
     it 'ユーザの情報が表示される' do
+      visit root_path
+      click_link '映画一覧'
+      page.save_screenshot 'movie_screenshot2.png'
       expect(page).to have_content 'test@gmail.com'
     end
 #    it '映画の一覧で表示される' do
