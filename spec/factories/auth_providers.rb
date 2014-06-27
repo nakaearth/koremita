@@ -25,8 +25,16 @@ FactoryGirl.define do
     provider 'facebook'
     uid SecureRandom.urlsafe_base64(124)
     screen_name 'test_name'
-    image_path 'http://test.image.url/test.jpg'
+    image_path 'dog2.jpg'
     token '123245aaaaaa'
     secret SecureRandom.urlsafe_base64(124)
+  end
+
+  trait :facebook do
+    provider 'facebook'
+  end
+
+  trait :developer do
+    provider 'developer'
   end
 end
