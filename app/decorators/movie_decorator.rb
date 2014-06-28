@@ -1,5 +1,5 @@
 module MovieDecorator
   def format_created_at
-    created_at.strftime("%y-%m-%d %H:%M")
+    created_at.strftime("%Y-%m-%d %H:%M")
   end
 end
