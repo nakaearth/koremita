@@ -32,7 +32,7 @@ module Koremita
     end
 
     def movie_youtub_params
-      params.require(:youtub).permit(:title, :url)   
+      params.require(:youtub).permit(:title, :url) if params[:youtub] 
     end
   end
 end
