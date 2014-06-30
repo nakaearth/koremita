@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       collection do
         get 'my_movies'
       end
+      resources :photos
     end
   end
 

@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to controller: 'koremita/top', action: 'index', notice:'login successfully.'
+    redirect_to controller: 'top', action: 'index', notice:'login successfully.'
   end
 
   def oauth_failure

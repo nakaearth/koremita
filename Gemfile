@@ -77,8 +77,11 @@ group :production do
   gem "bugsnag"
 end
 
-gem "heroku"
-gem "puma"
+# 本番
+gem 'heroku'
+
+# アプリケーションサーバ
+gem 'puma'
 
 # model info
 gem 'annotate', :git =>'https://github.com/ctran/annotate_models'
@@ -93,7 +96,7 @@ gem 'newrelic_rpm'
 # todo list generates
 gem 'watson-ruby'
 
-#setting
+# setting
 gem 'settingslogic'
 
 # bower
@@ -119,3 +122,8 @@ gem 'compass-rails'
 
 # decorator
 gem 'active_decorator'
+
+# 画像アップロード
+gem 'carrierwave'
+gem 'rmagick'
+

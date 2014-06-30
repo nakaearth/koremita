@@ -1,0 +1,9 @@
+画像のアップロードはcloudinaryで
+
+画像アップロードコントローラを作成
+ bundle exec rails g photos upload
+
+photoアップロードのcontroller作成中
+　画面作る
+  ルーティング大丈夫？
+
