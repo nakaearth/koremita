@@ -60,6 +60,11 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     celluloid-io (0.15.0)
@@ -259,6 +264,7 @@ GEM
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rmagick (2.13.2)
     rqrcode (0.4.2)
     rspec-collection_matchers (0.0.4)
       rspec-expectations (>= 2.99.0.beta1)
@@ -397,6 +403,7 @@ DEPENDENCIES
   byebug
   cache_digests
   capybara (~> 2.2.1)
+  carrierwave
   coffee-rails (~> 4.0.0)
   compass-rails
   dalli
@@ -425,6 +432,7 @@ DEPENDENCIES
   rails (= 4.1.1)
   rails_12factor
   rake_shared_context
+  rmagick
   rspec-rails (= 3.0.0.beta1)
   rubocop (~> 0.19)
   rubocop-checkstyle_formatter

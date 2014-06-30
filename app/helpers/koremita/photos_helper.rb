@@ -1,0 +1,2 @@
+module Koremita::PhotosHelper
+end

@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   rescue ActiveRecord::RecordNotFound => ar
     logger.info "ユーザ情報がありません."
     session[:user_id] = nil
-    redirect_to :root
+    nil
   end
 
   def login?

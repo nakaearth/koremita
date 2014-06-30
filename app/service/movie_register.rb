@@ -15,7 +15,7 @@ class MovieRegister
       end
 
       movie = Movie.new(title: movie_params[:title],
-                        image_url: movie_params[:image_url],
+                        photo: movie_params[:photo],
                         description: movie_params[:description],
                         rate: movie_params[:rate])
       movie.youtub = youtub if youtub

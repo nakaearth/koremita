@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140607145441) do
+ActiveRecord::Schema.define(version: 20140629140947) do
 
   create_table "auth_providers", force: true do |t|
     t.integer  "user_id"
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20140607145441) do
 
   create_table "movies", force: true do |t|
     t.string   "title"
-    t.string   "image_url"
     t.text     "description"
     t.integer  "view_flag"
     t.integer  "rate"
@@ -37,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140607145441) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "category"
+    t.string   "photo"
   end
 
   create_table "users", force: true do |t|
