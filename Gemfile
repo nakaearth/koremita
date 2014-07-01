@@ -129,4 +129,5 @@ gem 'active_decorator'
 # 画像アップロード
 gem 'carrierwave'
 gem 'rmagick'
+gem 'cloudinary'
 

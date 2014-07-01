@@ -53,6 +53,6 @@ class PhotoUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
   def public_id
-    return model.id ・・・※1
+    return model.id
   end
 end
