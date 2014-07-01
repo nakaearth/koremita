@@ -1,5 +1,4 @@
 class MovieRegister
-
   def initialize(current_user)
     @user = current_user
   end
@@ -9,8 +8,8 @@ class MovieRegister
       unless youtub_params.blank?
         youtub = Youtub.new(title: youtub_params[:title],
                             url: youtub_params[:url])
-        unless youtub.save 
-          #TODO 例外投げる
+        unless youtub.save
+          # TODO例外投げる
         end
       end
 
@@ -19,8 +18,8 @@ class MovieRegister
                         description: movie_params[:description],
                         rate: movie_params[:rate])
       movie.youtub = youtub if youtub
-      unless movie.save 
-        #TODO  例外投げる
+      unless movie.save
+        # TODO例外投げる
       end
       @user.movies << movie
       @user.save!

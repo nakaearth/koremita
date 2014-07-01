@@ -7,7 +7,7 @@ module Api
     end
 
     def search_movie(keyword, page = 1, per_page = 20)
-      @videos = @client.videos_by(:query => keyword, page: page, per_page: per_page )
+      @videos = @client.videos_by(query: keyword, page: page, per_page: per_page)
       @videos
     end
   end

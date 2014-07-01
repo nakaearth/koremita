@@ -27,12 +27,13 @@ module Koremita
     end
 
     private
+
     def movie_params
-      params.require(:movie).permit(:title, :photo, :description, :view_flag, :rate)   
+      params.require(:movie).permit(:title, :photo, :description, :view_flag, :rate)
     end
 
     def movie_youtub_params
-      params.require(:youtub).permit(:title, :url) if params[:youtub] 
+      params.require(:youtub).permit(:title, :url) if params[:youtub]
     end
   end
 end

@@ -26,7 +26,6 @@ describe MovieRegister do
       it "登録されたmovieのデータを調べる" do
         movie = current_user.movies.last
         expect(movie.title).to eql('test movie')
-        expect(movie.image_url).to eql('http://test.com/hoge.jpg')
         expect(movie.description).to eql('test test test')
         expect(movie.rate).to eql(100)
       end

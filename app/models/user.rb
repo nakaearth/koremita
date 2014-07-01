@@ -14,18 +14,14 @@
 #
 
 class User < ActiveRecord::Base
-
   has_many :movies
   has_many :youtubs
   has_many :auth_providers
 
-#  mount_uploader :photo, PhotoUploader
-
-  validates :email, presence: true , format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
+  validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
   validates :name, presence: true
 
-
   def self.find_by_email_and_provider(params)
-    User.includes(:auth_providers).where("users.email"=> params[:email]).find_by("auth_providers.provider" => params[:provider])
+    User.includes(:auth_providers).where("users.email" => params[:email]).find_by("auth_providers.provider" => params[:provider])
   end
 end

@@ -27,7 +27,7 @@ describe Koremita::MoviesController do
       end
       it '映画が1ページ分表示される' do
         expect(assigns[:movies].size).to eql(20)
-        expect(assigns[:movies][0].created_time).to eql(exec_time.strftime('%y-%m-%d %H:%M'))
+        expect(assigns[:movies][0].format_created_at).to eql(exec_time.strftime('%Y-%m-%d %H:%M'))
       end
     end
 

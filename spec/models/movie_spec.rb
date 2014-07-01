@@ -40,20 +40,4 @@ describe Movie do
       it { expect validate_presence_of(:desription) }
     end
   end
-
-  describe "image urlのフォーマットをチェック"  do
-    before do
-      @movie = test_movie
-      @movie.image_url = "htt://hogehoge.test.jp/image.jpg"
-      @movie2 = test_movie2
-      @movie2.image_url = "http://hogehoge.test.jp/image.jpg"
-    end
-    context "is invalid format" do
-      it { expect(@movie.errors_on(:image_url).size).to eql(1) }
-    end
-
-    context "is not  invalid format " do
-      it { expect(@movie2).to be_valid }
-    end
-  end
 end
