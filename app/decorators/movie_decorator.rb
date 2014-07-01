@@ -9,7 +9,7 @@ class MovieDecorator < Draper::Decorator
   #       object.created_at.strftime("%a %m/%d/%y")
   #     end
   #   end
-  def created_at
+  def created_time
     movie.created_at.strftime("%y-%m-%d %H:%M")
   end
 end

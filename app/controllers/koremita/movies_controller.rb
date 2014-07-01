@@ -1,8 +1,7 @@
 module Koremita
   class MoviesController < ContentsController
     def index
-      # @movies = Movie.page(params[:page]).per(20)
-      @movies = MovieDecorator.page(params[:page]).per(20)
+      @movies = MovieDecorator.page(params[:page]).per(20).decorate
     end
 
     def my_movies
