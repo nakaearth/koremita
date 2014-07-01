@@ -27,8 +27,8 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Rails.application.routes.url_helpers
   config.include Capybara::DSL
-  config.include Capybara::RSpecMatchers, :type => :request
-  config.include RequestHelpers, :type => :request
+  config.include Capybara::RSpecMatchers, type:  :request
+  config.include RequestHelper, type: :request
 
   config.before :suite do
    FactoryGirl.reload

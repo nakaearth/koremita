@@ -2,7 +2,6 @@
 
 module Users
   class Facebook < UserRegister
-
     def initialize(auth)
       @auth = auth
     end

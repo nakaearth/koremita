@@ -6,8 +6,9 @@ describe Koremita::MoviesController do
   let!(:current_user) { create(:current_user) }
   let!(:other_user) { create(:other_user) }
   let!(:auth_provider) { create(:auth_provider, user: current_user) }
-  let!(:movies) { create_list(:test_movie, 30,  user: other_user) }
-  let!(:my_movies) { create_list(:test_movie, 5,  user: current_user) }
+  let!(:exec_time) { Time.zone.now } 
+  let!(:movies) { create_list(:test_movie, 30,  user: other_user, created_at: exec_time) }
+  let!(:my_movies) { create_list(:test_movie, 5,  user: current_user, created_at: exec_time) }
 
   describe 'ユーザの映画一覧情報を表示するindexメソッドを呼ぶ' do
 
@@ -26,6 +27,7 @@ describe Koremita::MoviesController do
       end
       it '映画が1ページ分表示される' do
         expect(assigns[:movies].size).to eql(20)
+        expect(assigns[:movies][0].created_time).to eql(exec_time.strftime('%y-%m-%d %H:%M'))
       end
     end
 
@@ -47,10 +49,7 @@ describe Koremita::MoviesController do
         expect(assigns[:movies].size).to eql(15)
       end
     end
-
-
-
-
+    
     context '未ログインの場合' do
       it 'top#indexに遷移する' do
         expect(render_template('top#index'))

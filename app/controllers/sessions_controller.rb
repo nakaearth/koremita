@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
 
   def create
     auth  = request.env["omniauth.auth"]
+    p auth
     service = UsersFactory.create_users(auth)
     user = service.find_user_by_provider_and_uid || service.create_account
     session[:user_id] = user.id
