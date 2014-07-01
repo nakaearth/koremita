@@ -1,6 +1,5 @@
 module Users
   class Developer < UserRegister
-
     def initialize(auth)
       @auth = auth
     end

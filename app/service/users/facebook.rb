@@ -2,7 +2,6 @@
 
 module Users
   class Facebook < UserRegister
-
     def initialize(auth)
       @auth = auth
     end
@@ -11,7 +10,7 @@ module Users
       @new_user = User.find_or_create_by(email: @auth[:info][:email]) do |user|
         user.name  = @auth[:info][:name]
         user.email = @auth[:info][:email]
-      en
+      end
       @provider = AuthProvider.find_or_create_by(provider: @auth[:provider], user_id: @new_user.id) do |auth_provider|
         auth_provider.user_id = @new_user.id
         auth_provider.uid      = @auth[:uid]

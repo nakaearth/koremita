@@ -4,7 +4,10 @@ ruby '2.1.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+group  :development, :test do
+  gem 'sqlite3'
+end
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -77,8 +80,11 @@ group :production do
   gem "bugsnag"
 end
 
-gem "heroku"
-gem "puma"
+# 本番
+gem 'heroku'
+
+# アプリケーションサーバ
+gem 'puma'
 
 # model info
 gem 'annotate', :git =>'https://github.com/ctran/annotate_models'
@@ -93,7 +99,7 @@ gem 'newrelic_rpm'
 # todo list generates
 gem 'watson-ruby'
 
-#setting
+# setting
 gem 'settingslogic'
 
 # bower
@@ -117,4 +123,10 @@ gem 'youtube_it'
 # css fremework compass
 gem 'compass-rails'
 
-gem 'draper'
+# decorator
+gem 'active_decorator'
+
+# 画像アップロード
+gem 'carrierwave'
+gem 'rmagick'
+

@@ -1,7 +1,7 @@
 module Koremita
   class MoviesController < ContentsController
     def index
-      @movies = MovieDecorator.page(params[:page]).per(20).decorate
+      @movies = Movie.page(params[:page]).per(20)
     end
 
     def my_movies
@@ -9,7 +9,7 @@ module Koremita
     end
 
     def show
-      @movie = MovieDecorator.find(params[:id])
+      @movie = Movie.find(params[:id])
     end
 
     def new
@@ -28,11 +28,11 @@ module Koremita
 
     private
     def movie_params
-      params.require(:movie).permit(:title, :image_url, :description, :view_flag, :rate)   
+      params.require(:movie).permit(:title, :photo, :description, :view_flag, :rate)   
     end
 
     def movie_youtub_params
-      params.require(:youtub).permit(:title, :url)   
+      params.require(:youtub).permit(:title, :url) if params[:youtub] 
     end
   end
 end

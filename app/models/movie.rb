@@ -4,7 +4,6 @@
 #
 #  id          :integer          not null, primary key
 #  title       :string(255)
-#  image_url   :string(255)
 #  description :text
 #  view_flag   :integer
 #  rate        :integer
@@ -12,6 +11,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  category    :string(255)
+#  photo       :string(255)
 #
 
 class Movie < ActiveRecord::Base
@@ -20,5 +20,6 @@ class Movie < ActiveRecord::Base
 
   validates :title , presence: true, length: { maximum: 80 }
   validates :description, presence: true, length: { maximum: 500 }
-  validates :image_url , { allow_blank: true, format: URI::regexp(%w(http https)) }
+
+  mount_uploader :photo,  PhotoUploader
 end

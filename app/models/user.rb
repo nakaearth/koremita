@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
   has_many :youtubs
   has_many :auth_providers
 
+#  mount_uploader :photo, PhotoUploader
+
   validates :email, presence: true , format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
   validates :name, presence: true
 

@@ -2,7 +2,7 @@
   <div class='login_user_info'>
 <% if current_user %>
   Logged in as <strong><%= current_user.email %></strong>.
-  <%= image_tag src: "#{current_user.auth_providers[0].image_path}", size: '40x40' %>
+  <%= image_tag  current_user.auth_providers[0].try(:image_path), size: '40x40' %>
   <%= link_to "ログアウト", logout_path  %>
 <% else %>
   <%= link_to "Facebookでログイン", "/facebook/login"  %> |

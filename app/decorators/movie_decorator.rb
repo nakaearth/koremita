@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class MovieDecorator < Draper::Decorator
   delegate_all
 
@@ -11,5 +12,10 @@ class MovieDecorator < Draper::Decorator
   #   end
   def created_time
     movie.created_at.strftime("%y-%m-%d %H:%M")
+=======
+module MovieDecorator
+  def format_created_at
+    created_at.strftime("%Y-%m-%d %H:%M")
+>>>>>>> d66a1555926b7908d91cd671939f96da99c62eeb
   end
 end
