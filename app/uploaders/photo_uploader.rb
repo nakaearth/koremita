@@ -5,7 +5,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   storage :file
 
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "uploads/koremita/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
   process convert: 'png'
@@ -14,7 +14,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [100, 150, :north]
   end
 
-  version :thumb do
+  version :thumbnail do
     process resize_to_fit: [50, 50]
   end
 

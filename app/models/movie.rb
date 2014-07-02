@@ -13,6 +13,7 @@
 #  category    :string(255)
 #  photo       :string(255)
 #
+require 'carrierwave/orm/activerecord'
 
 class Movie < ActiveRecord::Base
   belongs_to :user

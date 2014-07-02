@@ -1,9 +1,19 @@
+---
 production:
-  cloud_name: "koremita"
+  cloud_name: hlbv2rjko
   api_key: ENV['CLOUDINARY_KEY']
   api_secret: ENV['CLOUDINARY_SECRET']
+  enhance_image_tag: true
+  static_image_support: false
 development:
-  cloud_name: "t-koremita"
+  cloud_name: hlbv2rjko
   api_key: ENV['CLOUDINARY_KEY']
   api_secret: ENV['CLOUDINARY_SECRET']
-
+  enhance_image_tag: true
+  static_image_support: false
+test:
+  cloud_name: hlbv2rjko
+  api_key: ENV['CLOUDINARY_KEY']
+  api_secret: ENV['CLOUDINARY_SECRET']
+  enhance_image_tag: true
+  static_image_support: false

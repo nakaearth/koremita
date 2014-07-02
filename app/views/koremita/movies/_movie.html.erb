@@ -3,6 +3,7 @@
     <%= link_to '詳細', action: 'show', id: movie.id %>
   </div>
   <br/>
+  <%= image_tag(movie.photo_url(:thumbnail), width: 80, height: 80) %>
   <%= movie.title %>
   <br/>
   <%= movie.format_created_at %>
