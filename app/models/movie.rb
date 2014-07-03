@@ -20,6 +20,4 @@ class Movie < ActiveRecord::Base
 
   validates :title , presence: true, length: { maximum: 80 }
   validates :description, presence: true, length: { maximum: 500 }
-
-  mount_uploader :photo,  PhotoUploader
 end

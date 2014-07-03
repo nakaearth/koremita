@@ -14,13 +14,19 @@ class MovieRegister
       end
 
       movie = Movie.new(title: movie_params[:title],
-                        photo: movie_params[:photo],
                         description: movie_params[:description],
                         rate: movie_params[:rate])
       movie.youtub = youtub if youtub
+      
+      # 画像アプロード
+      options = { tags: [Rails.env, 'movie'], public_id: movie.title + Time.zone.now.strftime('%Y%m%d%H%M'), image_metadata: false, flags: :force_strip }
+      result = Cloudinary::Uploader.upload(movie_params[:photo], options)
+      
+      movie.photo = result['secure_url']
       unless movie.save
         # TODO例外投げる
       end
+
       @user.movies << movie
       @user.save!
       movie
