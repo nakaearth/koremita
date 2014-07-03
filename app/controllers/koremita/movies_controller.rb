@@ -17,7 +17,6 @@ module Koremita
     end
 
     def create
-      p ENV['CLOUDINARY_KEY']
       register =  MovieRegister.new(current_user)
       movie = register.regist_movie(movie_params , movie_youtub_params)
       if movie

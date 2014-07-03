@@ -2,6 +2,5 @@
   <%= f.label :title %>:<%= f.text_field :title %><br/>
   <%= f.label :description %>:<%= f.text_area :description, :size => "90x30" %><br/>
   <%= f.label :photo %>:<%= @movie.photo.thumbnail.url if @movie.photo %> <%= f.file_field :photo %>
-  <%= f.hidden_field :photo_cache %>
   <%= f.submit %>
 <% end %>
