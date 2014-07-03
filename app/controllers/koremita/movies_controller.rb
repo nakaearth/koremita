@@ -29,7 +29,7 @@ module Koremita
     private
 
     def movie_params
-      params.require(:movie).permit(:title, :photo, :description, :view_flag, :rate)
+      params.require(:movie).permit(:title, :photo, :photo_cache,  :description, :view_flag, :rate)
     end
 
     def movie_youtub_params

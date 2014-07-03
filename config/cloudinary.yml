@@ -1,19 +1,13 @@
----
+defaults: &defaults
+  cloud_name: hlbv2rjko
+  api_key: <%= ENV['CLOUDINARY_KEY'] %>
+  api_secret: <%= ENV['CLOUDINARY_SECRET'] %>
+  enhance_image_tag: true
+  static_image_support: false
+
 production:
-  cloud_name: hlbv2rjko
-  api_key: ENV['CLOUDINARY_KEY']
-  api_secret: ENV['CLOUDINARY_SECRET']
-  enhance_image_tag: true
-  static_image_support: false
+  <<: *defaults
 development:
-  cloud_name: hlbv2rjko
-  api_key: ENV['CLOUDINARY_KEY']
-  api_secret: ENV['CLOUDINARY_SECRET']
-  enhance_image_tag: true
-  static_image_support: false
+  <<: *defaults
 test:
-  cloud_name: hlbv2rjko
-  api_key: ENV['CLOUDINARY_KEY']
-  api_secret: ENV['CLOUDINARY_SECRET']
-  enhance_image_tag: true
-  static_image_support: false
+  <<: *defaults
