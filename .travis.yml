@@ -9,11 +9,9 @@ branches:
     - master
 env:
   - DB=sqlite
-  - DB=mysql
-  - DB=postgresql
 script: 
   - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake db:test:prepare
+  - RAILS_ENV=test bundle exec rake db:test:prepare
   - RAILS_ENV=test bundle exec rake spec
   - bundle exec rubocop app
   - bundle exec rubocop lib
