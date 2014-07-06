@@ -404,7 +404,6 @@ DEPENDENCIES
   better_errors
   bower-rails (~> 0.7.1)
   bugsnag
-  byebug (= 2.7.0)
   cache_digests
   capybara (~> 2.2.1)
   carrierwave
