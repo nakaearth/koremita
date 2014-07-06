@@ -4,14 +4,16 @@ rvm:
   - 2.1.1
 gemfile:
   - Gemfile
+env:
+  - RAILS_ENV=test
 branches:
 only:
   - master
 env:
   - DB=sqlite
 script:
-  - RAILS_ENV=test bundle exec rake db:schema:load 
-  - RAILS_ENV=test bundle exec rake spec
+  - bundle exec rake db:schema:load
+  - bundle exec rake db:test:prepare
   - bundle exec rubocop app
   - bundle exec rubocop lib
   - bundle exec rubocop spec
