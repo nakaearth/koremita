@@ -18,7 +18,6 @@ script:
   - bundle exec rubocop lib
   - bundle exec rubocop spec
 before_script:
-  - gem install byebug
   - cp config/database.travis.yml config/database.yml
 after_failure:
   - "bundle exec rake --version"
