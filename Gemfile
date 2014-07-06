@@ -65,7 +65,7 @@ group :development, :test do
 end
 gem "spring" , '1.1.2'
 
-group :development do
+group :development, :test do
   gem "pry-rails"
   gem "pry-byebug"
   gem "pry-doc"
