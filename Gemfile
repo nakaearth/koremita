@@ -38,7 +38,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'byebug'
+gem 'byebug', '2.7.0'
 
 gem "omniauth-twitter"
 gem "omniauth-facebook"
@@ -109,9 +109,6 @@ gem 'bower-rails', '~> 0.7.1'
 
 # cache_digest
 gem 'cache_digests'
-
-# ruby 2.0 debug tool
-gem 'byebug'
 
 # itunes api
 gem 'itunes-search-api'
