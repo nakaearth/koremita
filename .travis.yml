@@ -5,15 +5,18 @@ rvm:
 gemfile:
   - Gemfile
 branches:
-  only:
-    - master
+only:
+  - master
 env:
   - DB=sqlite
 script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
   - RAILS_ENV=test bundle exec rake db:test:prepare
   - RAILS_ENV=test bundle exec rake spec
   - bundle exec rubocop app
   - bundle exec rubocop lib
   - bundle exec rubocop spec
+before_script:
+  - cp config/database.travis.yml config/database.yml
 after_failure:
   - "bundle exec rake --version"
