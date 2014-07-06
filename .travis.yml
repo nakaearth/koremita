@@ -1,5 +1,5 @@
 language: ruby
-bundler_args: --without development --path vendor/bundle
+bundler_args: --without production --path vendor/bundle
 rvm:
   - 2.1.1
 gemfile:
@@ -10,8 +10,7 @@ only:
 env:
   - DB=sqlite
 script:
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - RAILS_ENV=test bundle exec rake db:test:prepare
+  - RAILS_ENV=test bundle exec rake db:schema:load 
   - RAILS_ENV=test bundle exec rake spec
   - bundle exec rubocop app
   - bundle exec rubocop lib
