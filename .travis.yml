@@ -1,7 +1,7 @@
 language: ruby
 bundler_args: --without development --path vendor/bundle
 rvm:
-  - 2.1.1
+  - 2.1.0
 gemfile:
   - Gemfile
 branches:
@@ -9,7 +9,8 @@ branches:
     - master
 env:
   - DB=sqlite
-script: 
+script:
+  - 
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - RAILS_ENV=test bundle exec rake db:test:prepare
   - RAILS_ENV=test bundle exec rake spec
