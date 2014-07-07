@@ -8,7 +8,6 @@ describe Api::ItunesSearch do
       before do
         @api = Api::ItunesSearch.new('star', 'JP', 'movie')
         @result = @api.search
-        p @result
       end
       it { expect(@result).not_to be_nil }
     end
