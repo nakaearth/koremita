@@ -35,18 +35,14 @@ RSpec.configure do |config|
     DatabaseRewinder.clean_all
 
     OmniAuth.config.test_mode = true
-    OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
-        provider: 'developer',
-        uid: '12345',
-        info: {
-          email: 'test@gmail.com',
-          name: 'test_user',
-          nickname: 'test_name',
-          image_path: 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/t1.0-1/c17.17.207.207/s200x200/149215_105545336185505_793209_n.jpg'
-        }
-    })
-    omniauth_hash = { uid: '12345', nickname: 'testuser', credentials: { token: 'umad', secret: 'bro?' } }
-    OmniAuth.config.add_mock(:facebook, omniauth_hash.merge({ nickname: 'Mr Herpy Derpy Pants' }))
+    omni_map = { provider: 'developer', uid: '12345',
+                 info: { email: 'test@gmail.com',
+                         name: 'test_user',
+                         nickname: 'test_name',
+                         image_path: 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/t1.0-1/c17.17.207.207/s200x200/149215_105545336185505_793209_n.jpg'
+                 }
+    }
+    OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(omni_map)
   end
 
   config.after :each do
@@ -58,5 +54,5 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
 
   config.infer_base_class_for_anonymous_controllers = false
-  config.order = "random"
+  config.order = 'random'
 end
