@@ -131,6 +131,6 @@ gem 'cloudinary'
 # travis ci対応?
 group :test do
   gem 'byebug'
-  gem 'nio4r'
+  gem 'nio4r', '0.5.0'
   gem 'rake-compiler'
 end
