@@ -128,6 +128,8 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'cloudinary'
 
-gem 'byebug'
-gem 'nio4r'
-
+# travis ci対応?
+group :test do
+  gem 'byebug'
+  gem 'nio4r'
+end
