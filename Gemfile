@@ -78,13 +78,12 @@ group :production do
   gem "foreman"
   gem "rails_12factor"
   gem "bugsnag"
+  # アプリケーションサーバ
+  gem 'puma'
 end
 
 # 本番
 gem 'heroku'
-
-# アプリケーションサーバ
-gem 'puma'
 
 # model info
 gem 'annotate', :git =>'https://github.com/ctran/annotate_models'
