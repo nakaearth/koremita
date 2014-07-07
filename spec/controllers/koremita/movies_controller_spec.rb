@@ -6,7 +6,7 @@ describe Koremita::MoviesController do
   let!(:current_user) { create(:current_user) }
   let!(:other_user) { create(:other_user) }
   let!(:auth_provider) { create(:auth_provider, user: current_user) }
-  let!(:exec_time) { Time.zone.now } 
+  let!(:exec_time) { Time.zone.now }
   let!(:movies) { create_list(:test_movie, 30,  user: other_user, created_at: exec_time) }
   let!(:my_movies) { create_list(:test_movie, 5,  user: current_user, created_at: exec_time) }
 
@@ -49,7 +49,7 @@ describe Koremita::MoviesController do
         expect(assigns[:movies].size).to eql(15)
       end
     end
-    
+
     context '未ログインの場合' do
       it 'top#indexに遷移する' do
         expect(render_template('top#index'))
@@ -98,10 +98,6 @@ describe Koremita::MoviesController do
       it '入力画面に遷移する' do
         expect(render_template 'new')
       end
-
-#      it '入力エラーを表示' do
-#        expect(assigns(:movie).errors.empty?).to be_false
-#      end
     end
 
     context '渡されるパラメータが不正の場合(description未入力)' do
@@ -113,10 +109,6 @@ describe Koremita::MoviesController do
       it '入力画面に遷移する' do
         expect(render_template 'new')
       end
-
-#      it '入力エラーを表示' do
-#        expect(assigns(:movie).errors.empty?).to be_false
-#      end
     end
   end
 end

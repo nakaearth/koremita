@@ -10,8 +10,15 @@ describe SessionsController do
     context 'facebookログインの場合' do
       before do
         allow(controller).to receive(:current_user) { current_user }
-        params =  { provider: 'facebook', info: { email: current_user.email, name: current_user.name, nickname: current_user.auth_providers[0].screen_name, image: current_user.auth_providers[0].image_path }, provider: current_user.auth_providers[0].provider, uid: current_user.auth_providers[0].uid, credentials: { token: current_user.auth_providers[0].token }  }
-        controller.request.env["omniauth.auth"] =  params 
+        params =  { provider: 'facebook', info: { email: current_user.email,
+                                                  name: current_user.name,
+                                                  nickname: current_user.auth_providers[0].screen_name,
+                                                  image: current_user.auth_providers[0].image_path
+                                                },
+                                          provider: current_user.auth_providers[0].provider,
+                                          uid: current_user.auth_providers[0].uid,
+                                          credentials: { token: current_user.auth_providers[0].token }  }
+        controller.request.env["omniauth.auth"] =  params
         post :create, params
       end
 

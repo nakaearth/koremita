@@ -6,18 +6,14 @@ describe MovieRegister do
   let!(:test_movie2) { FactoryGirl.create(:test_movie, user: current_user) }
   let!(:test_movie3) { FactoryGirl.create(:test_movie, user: current_user) }
   let!(:test_movie4) { FactoryGirl.create(:test_movie, user: current_user) }
-#  let!(:params) { movie: { title: 'test movie', image_utl: 'http://test.com/hoge.jpg',
-#    description: 'test test test', rate: 100 },
-#    youtub: { title: 'test youtub', url: 'http://hogehoge.jp/test.mp3'}
-#  }
 
   describe "serviceは登録時にmovieテーブルとyoutubテーブルに値を入れる" do
     context "movieとyoubu両方登録" do
       before do
         service = MovieRegister.new(current_user)
         movie_params = { title: 'test movie', image_url: 'http://test.com/hoge.jpg',
-                           description: 'test test test', rate: 100 }
-        youtub_params =  { title: 'test youtub', url: 'http://hogehoge.jp/test.mp3'}
+                         description: 'test test test', rate: 100 }
+        youtub_params =  { title: 'test youtub', url: 'http://hogehoge.jp/test.mp3' }
         service.regist_movie(movie_params, youtub_params)
       end
       it "登録されたmovieの数が増えている" do

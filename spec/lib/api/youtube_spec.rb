@@ -9,10 +9,7 @@ describe Api::Youtube do
         @api = Api::Youtube.new
         @result = @api.search_movie('star', 1, 10)
         @result.videos.each do |video|
-          p video.title 
-          p video.description
-          p video.thumbnails
-          p video.player_url
+          p video
         end
       end
       it "starというキーワドに関連する映画の情報が取れる" do

@@ -31,7 +31,7 @@ RSpec.configure do |config|
   config.include RequestHelper, type: :request
 
   config.before :suite do
-   FactoryGirl.reload
+    FactoryGirl.reload
     DatabaseRewinder.clean_all
 
     OmniAuth.config.test_mode = true
@@ -45,14 +45,14 @@ RSpec.configure do |config|
           image_path: 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/t1.0-1/c17.17.207.207/s200x200/149215_105545336185505_793209_n.jpg'
         }
     })
-    omniauth_hash = { 'uid' => '12345', 'nickname' => 'testuser', 'credentials' => { 'token' => 'umad', 'secret' => 'bro?' } }
-    OmniAuth.config.add_mock(:facebook, omniauth_hash.merge({'nickname' => 'Mr Herpy Derpy Pants'}))
+    omniauth_hash = { uid: '12345', nickname: 'testuser', credentials: { token: 'umad', secret: 'bro?' } }
+    OmniAuth.config.add_mock(:facebook, omniauth_hash.merge({ nickname: 'Mr Herpy Derpy Pants' }))
   end
 
   config.after :each do
     DatabaseRewinder.clean
   end
-  
+
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   config.use_transactional_fixtures = true

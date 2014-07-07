@@ -20,7 +20,7 @@ FactoryGirl.define do
     email 'test@gmail.com'
     name 'test_user'
   end
-  
+
   factory :other_user, class: User do
     email 'test_other@gmail.com'
     name 'test_user_other'
