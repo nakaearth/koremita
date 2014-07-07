@@ -67,7 +67,7 @@ gem "spring" , '1.1.2'
 
 group :development, :test do
   gem "pry-rails"
-  gem "pry-byebug"
+#  gem "pry-byebug"
   gem "pry-doc"
   gem "awesome_print"
   gem 'better_errors'
@@ -127,4 +127,7 @@ gem 'active_decorator'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'cloudinary'
+
+gem 'byebug'
+
 
