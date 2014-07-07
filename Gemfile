@@ -132,4 +132,5 @@ gem 'cloudinary'
 group :test do
   gem 'byebug'
   gem 'nio4r'
+  gem 'rake-compiler'
 end
