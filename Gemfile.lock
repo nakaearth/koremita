@@ -423,6 +423,7 @@ DEPENDENCIES
   json
   kaminari
   newrelic_rpm
+  nio4r
   omniauth-facebook
   omniauth-twitter
   parallel_tests

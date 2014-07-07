@@ -129,5 +129,5 @@ gem 'rmagick'
 gem 'cloudinary'
 
 gem 'byebug'
-
+gem 'nio4r'
 
