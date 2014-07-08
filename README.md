@@ -15,6 +15,7 @@ https://developers.facebook.com/apps/
 ------
 コードカバレッジ:
 
-{<img src="https://coveralls.io/repos/nakaearth/koremita/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/nakaearth/koremita]
+<a href="https://coveralls.io/r/nakaearth/koremita" >
+<img src="https://coveralls.io/repos/nakaearth/koremita/badge.png" alt="Coverage Status" /></a>
 
 
