@@ -57,8 +57,8 @@ group :development, :test do
   gem 'simplecov-rcov', require: false
   gem 'brakeman'
   gem 'rails_best_practices'
-  #  gem 'rubocop', '~> 0.23',  require: false
-  gem 'rubocop', '~> 0.19',  require: false
+  gem 'rubocop', '~> 0.23',  require: false
+  # gem 'rubocop', '~> 0.19',  require: false
   gem 'rubocop-checkstyle_formatter', require: false
   gem 'guard'
   gem 'guard-rspec', '~> 0.4.2'

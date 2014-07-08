@@ -18,7 +18,7 @@ module Koremita
 
     def create
       register =  MovieRegister.new(current_user)
-      movie = register.regist_movie(movie_params , movie_youtub_params)
+      movie = register.regist_movie(movie_params, movie_youtub_params)
       if movie
         redirect_to action: :show, id: movie.id,  notice: 'movie data rec'
       else

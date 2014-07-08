@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   before_action :login?
   helper_method :current_user
-  rescue_from ActiveRecord::RecordNotFound , with: :render_404
+  rescue_from ActiveRecord::RecordNotFound, with: :render_404
   rescue_from ActionController::RoutingError, with: :render_404
 
   def current_user
