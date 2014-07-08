@@ -38,46 +38,50 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem "omniauth-twitter"
-gem "omniauth-facebook"
-gem "json"
-gem "kaminari"
-gem "dalli"
-gem "whenever"
-gem "simple_form"
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'json'
+gem 'kaminari'
+gem 'dalli'
+gem 'whenever'
+gem 'simple_form'
 group :development, :test do
   gem 'rspec-rails', '3.0.0.beta1'
-  gem "rake_shared_context"
+  gem 'rake_shared_context'
   gem 'capybara', '~> 2.2.1'
   gem 'selenium-webdriver'
-  gem "factory_girl_rails"
-  gem "shoulda-matchers"
-  gem "database_rewinder"
-#  gem "rubocop", '~> 0.23',  require: false
-  gem "rubocop", '~> 0.19',  require: false
-  gem "rubocop-checkstyle_formatter", require: false
-  gem "guard"
-  gem "guard-rspec", " ~> 0.4.2"
-  gem "guard-spring"
-  gem "guard-rubocop"
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+  gem 'database_rewinder'
+  gem 'simplecov', :require => false
+  gem 'simplecov-rcov', require: false
+  gem 'brakeman'
+  gem 'rails_best_practices'
+  #  gem 'rubocop', '~> 0.23',  require: false
+  gem 'rubocop', '~> 0.19',  require: false
+  gem 'rubocop-checkstyle_formatter', require: false
+  gem 'guard'
+  gem 'guard-rspec', '~> 0.4.2'
+  gem 'guard-spring'
+  gem 'guard-rubocop'
   gem 'terminal-notifier-guard'
-  gem "parallel_tests"
+  gem 'parallel_tests'
 end
-gem "spring" , '1.1.2'
+gem 'spring' , '1.1.2'
 
 group :development, :test do
-  gem "pry-rails"
-#  gem "pry-byebug"
-  gem "pry-doc"
-  gem "awesome_print"
+  gem 'pry-rails'
+  #  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'awesome_print'
   gem 'better_errors'
 end
 
 group :production do
-  gem "pg"
-  gem "foreman"
-  gem "rails_12factor"
-  gem "bugsnag"
+  gem 'pg'
+  gem 'foreman'
+  gem 'rails_12factor'
+  gem 'bugsnag'
   # アプリケーションサーバ
   gem 'puma'
 end
