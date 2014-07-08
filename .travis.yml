@@ -1,26 +1,31 @@
 language: ruby
-bundler_args: --without production --path vendor/bundle
+bundler_args: "--without production --path vendor/bundle"
 rvm:
-  - 2.1.1
+- 2.1.1
 gemfile:
-  - Gemfile
+- Gemfile
 env:
-  - RAILS_ENV=test
+- DB=sqlite
 branches:
   only:
-    - master
-env:
-  - DB=sqlite
+  - master
 script:
-  - bundle exec rake db:schema:load
-  - bundle exec rake db:test:prepare
-  - bundle exec rake spec
-  - bundle exec rubocop app
-  - bundle exec rubocop lib
-  - bundle exec rubocop spec
+- bundle exec rake db:schema:load
+- bundle exec rake db:test:prepare
+- bundle exec rake spec
+- bundle exec rubocop app
+- bundle exec rubocop lib
+- bundle exec rubocop spec
 before_install: gem update bundler
 before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
 after_failure:
-  - "bundle exec rake --version"
+- bundle exec rake --version
+deploy:
+  provider: heroku
+  api_key:
+    secure: Km9WleCBJqKsRWoxFxhH5m42gimSmLQHNNwv9OnbUKMB/203Ug/dn+uc31RULOi2swWInShPLc188Pv058km/eh1rrKVNW8/ttGOYz+k7wgThN1tWCjwLdEwvNa7EbOdVq5qpMe0tzLHHgATfAhP6prNX5a+k8qZGyu+h6KJCvo=
+  app: koremita
+  on:
+    repo: nakaearth/koremita
