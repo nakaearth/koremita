@@ -103,7 +103,7 @@ describe Koremita::MoviesController do
     context '渡されるパラメータが不正の場合(description未入力)' do
       before do
         allow(controller).to receive(:current_user) { current_user }
-        params =  { movie: { title: 'test_title' , image_url: 'http://test.com/hoge.jpg', rate: 100 }, youtub: { title: 'test youtub', url: 'http://hogehoge.jp/test.mp3' } }
+        params =  { movie: { title: 'test_title', image_url: 'http://test.com/hoge.jpg', rate: 100 }, youtub: { title: 'test youtub', url: 'http://hogehoge.jp/test.mp3' } }
         post :create, params
       end
       it '入力画面に遷移する' do

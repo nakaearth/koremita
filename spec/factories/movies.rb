@@ -17,7 +17,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :test_movie , class: Movie do
+  factory :test_movie, class: Movie do
     sequence(:title) {  |n| "my mobie #{n}" }
     sequence(:photo) {  |n| "http://test.hoge/test#{n}.jp" }
     description "test test test test"
