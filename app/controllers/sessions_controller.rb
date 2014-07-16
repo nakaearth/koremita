@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    reset_session
     redirect_to controller: 'top', action: 'index', notice: 'login successfully.'
   end
 
