@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140629140947) do
+ActiveRecord::Schema.define(version: 20140716035743) do
 
   create_table "auth_providers", force: true do |t|
     t.integer  "user_id"
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 20140629140947) do
   end
 
   add_index "auth_providers", ["user_id"], name: "index_auth_providers_on_user_id"
+
+  create_table "comments", force: true do |t|
+    t.string   "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "movie_id"
+  end
+
+  add_index "comments", ["movie_id"], name: "index_comments_on_movie_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "movies", force: true do |t|
     t.string   "title"
