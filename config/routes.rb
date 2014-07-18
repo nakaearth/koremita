@@ -13,6 +13,7 @@ Rails.application.routes.draw do
         get 'my_movies'
       end
       resources :photos
+      resources :comments
     end
   end
 
