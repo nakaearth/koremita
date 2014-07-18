@@ -1,2 +1,4 @@
-module Koremita::CommentsHelper
+module Koremita
+  class CommentsHelper
+  end
 end
