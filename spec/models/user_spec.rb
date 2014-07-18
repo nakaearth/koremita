@@ -22,20 +22,32 @@ describe User do
   let!(:test_movie2) { create(:test_movie, user: current_user) }
   let!(:test_movie3) { create(:test_movie, user: current_user) }
   let!(:test_movie4) { create(:test_movie, user: current_user) }
+  let!(:my_comments1) { create_list(:comment, 5, user: current_user) }
 
   # モデルの定義をチェック
   it { expect have_many(:movies) }
   it { expect validate_presence_of(:email) }
   it { expect validate_presence_of(:name) }
-  it { expect(current_user.movies.size).to eql(4) }
+  it { expect(current_user.movies.size).to eq(4) }
 
-  describe "user モデル属性チェック" do
-    context "ログイン後" do
+  describe 'user モデル属性チェック' do
+    context 'ログイン後' do
       before do
         @user = current_user
       end
-      it "email address" do
-        expect(@user.email).to eql('test@gmail.com')
+      it 'email address' do
+        expect(@user.email).to eq('test@gmail.com')
+      end
+    end
+  end
+
+  describe 'my_commentsという名前のアソシエーションをチェック' do
+    context '自分のコメントを投稿している場合' do
+      before do
+        @user = current_user
+      end
+      it '自分が投稿したコメントが取得できる' do
+        expect(@user.my_comments.size).to eq(5)
       end
     end
   end
