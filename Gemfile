@@ -137,3 +137,7 @@ group :test do
   gem 'nio4r', '0.5.0'
   gem 'rake-compiler'
 end
+
+# 権限カンンリ
+gem "pundit"
+

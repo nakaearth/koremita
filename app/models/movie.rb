@@ -17,6 +17,7 @@
 class Movie < ActiveRecord::Base
   belongs_to :user
   has_one :youtub
+  has_many :movie_comments, class_name: Comment
 
   validates :title, presence: true, length: { maximum: 80 }
   validates :description, presence: true, length: { maximum: 500 }
