@@ -25,19 +25,32 @@ describe Movie do
   let!(:test_movie3) { create(:test_movie, user: current_user) }
   let!(:test_movie4) { create(:test_movie, user: current_user) }
 
-  describe "幾つかのテーブルと関連を持っている" do
-    context "have a relation to user class" do
+  describe '幾つかのテーブルと関連を持っている' do
+    context 'have a relation to user class' do
       it { expect belong_to(:users) }
     end
   end
 
-  describe "入力チェックをする" do
-    context "titleは必須" do
+  describe '入力チェックをする' do
+    context 'titleは必須' do
       it { expect validate_presence_of(:title) }
     end
 
-    context "descriptionは必須" do
+    context 'descriptionは必須' do
       it { expect validate_presence_of(:desription) }
+    end
+  end
+
+  describe '全文検索' do
+    context 'タイトル検索' do
+      before do
+#        Movie.import
+      end
+
+      it '該当するデータが取得できる' do
+        movies = Movie.search('movies', 'test')
+        expect(movies).not_to be_nil
+      end
     end
   end
 end

@@ -137,3 +137,6 @@ group :test do
   gem 'nio4r', '0.5.0'
   gem 'rake-compiler'
 end
+
+# mroonga対応
+gem 'rroonga'

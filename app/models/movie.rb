@@ -15,9 +15,17 @@
 #
 
 class Movie < ActiveRecord::Base
+  include Searchable
+
+  after_save :create_search_data
+
   belongs_to :user
   has_one :youtub
 
   validates :title, presence: true, length: { maximum: 80 }
   validates :description, presence: true, length: { maximum: 500 }
+
+  def create_search_data
+    Searchable.add("movies", id.to_s, title)
+  end
 end
