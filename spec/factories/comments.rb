@@ -19,6 +19,6 @@
 
 FactoryGirl.define do
   factory :comment do
-    message "MyString"
+    message "これはテストだよ"
   end
 end

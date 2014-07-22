@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   has_many :movies
   has_many :youtubs
   has_many :auth_providers
-  has_many :my_comments, class_name: 'comment'
+  has_many :my_comments, ->(record) { where(user_id: record.id) }, class_name: Comment
 
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
   validates :name, presence: true

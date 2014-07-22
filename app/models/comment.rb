@@ -16,8 +16,8 @@
 #
 
 class Comment < ActiveRecord::Base
-  belongs_to :movies, dependent: :destroy
-  belongs_to :users, dependent: :destroy
+  belongs_to :movie, dependent: :destroy
+  belongs_to :user, dependent: :destroy
 
   validates :message, presence: true
 end
