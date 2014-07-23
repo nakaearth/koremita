@@ -15,8 +15,8 @@ module Searchable
     def search(path = "/tmp/koremita.db", table_name, search_value)
       Groonga::Database.new(path)
       search_model = Groonga[table_name]
-      @result = search_model.select { |record| record.title =~ search_value }
-      p @result
+      # TODO 検索方式どうするか検討すること
+      #      @result = search_model.select { |record| record.title =~ search_value }
     end
   end
 end
