@@ -144,3 +144,6 @@ gem 'rroonga'
 # 権限カンンリ
 gem "pundit"
 
+# font Awesome
+gem 'font-awesome-rails'
+
