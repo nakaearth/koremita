@@ -23,6 +23,9 @@ GEM
       builder (~> 3.1)
       erubis (~> 2.7.0)
     active_decorator (0.3.4)
+    activegroonga (4.0.0)
+      activemodel (>= 4.0.0)
+      rroonga (>= 2.1.2)
     activemodel (4.1.1)
       activesupport (= 4.1.1)
       builder (~> 3.1)
@@ -462,6 +465,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_decorator
+  activegroonga
   annotate!
   awesome_print
   better_errors
@@ -507,7 +511,6 @@ DEPENDENCIES
   rake-compiler
   rake_shared_context
   rmagick
-  rroonga
   rspec-rails (= 3.0.0.beta1)
   rubocop (~> 0.23)
   rubocop-checkstyle_formatter

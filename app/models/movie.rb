@@ -27,6 +27,7 @@ class Movie < ActiveRecord::Base
   validates :description, presence: true, length: { maximum: 500 }
 
   def create_search_data
-    Searchable.add("movies", id.to_s, title)
+#    Searchable.add("movies", id.to_s, title)
+    SearchMovie.create(title: title)
   end
 end

@@ -139,7 +139,8 @@ group :test do
 end
 
 # mroonga対応
-gem 'rroonga'
+# gem 'rroonga'
+gem 'activegroonga'
 
 # 権限カンンリ
 gem "pundit"

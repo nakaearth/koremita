@@ -40,20 +40,19 @@ describe Movie do
       it { expect validate_presence_of(:desription) }
     end
   end
-
-  describe '全文検索' do
-    context 'タイトル検索' do
-      before do
-      end
-
-      it '該当するデータが取得できる' do
-        movies = Movie.search('movies', 'mobile')
-        expect(movies).not_to be_nil
-      end
-      it 'movieが登録されると全文検索の方にも登録される' do
-         movies = Movie.search('movies', 'mobile')
-         expect(movies.size).to eq(4)
-      end
-    end
-  end
+#  describe '全文検索' do
+#    context 'タイトル検索' do
+#      before do
+#      end
+#
+#      it '該当するデータが取得できる' do
+#        movies = Movie.search('movies', 'mobile')
+#        expect(movies).not_to be_nil
+#      end
+#      it 'movieが登録されると全文検索の方にも登録される' do
+#         movies = Movie.search('movies', 'mobile')
+#         expect(movies.size).to eq(4)
+#      end
+#    end
+#  end
 end
