@@ -140,7 +140,7 @@ end
 
 # mroonga対応
 # gem 'rroonga'
-gem 'activegroonga'
+# gem 'activegroonga'
 
 # 権限カンンリ
 gem "pundit"
