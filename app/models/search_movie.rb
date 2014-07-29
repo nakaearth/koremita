@@ -1,4 +1,4 @@
-#require 'active_groonga'
+# require 'active_groonga'
 
 # class SearchMovie  < ActiveGroonga::Base
 class SearchMovie
