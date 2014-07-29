@@ -1,4 +1,13 @@
-
+<div class='movie_detail' %>
 <%= @movie.title %><br/>
-<%= @movie.format_created_at %>
-<%= link_to  koremita_movie_comments_path(@movie.id)
+<%= @movie.format_created_at %><br/>
+<%= @movie.description %>
+</div>
+<%= link_to  koremita_movie_comments_path(@movie.id) %>
+<div class='movie_comment_list'>
+  <% @movie.movie_comments.each do |c| %>
+    <div class='comment'>
+      <%= c.comment %>
+    </div>
+  <% end %>
+</div>
