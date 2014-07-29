@@ -3,7 +3,6 @@ module Koremita
     before_action :set_comment
 
     def show
-      authorize @comment
     end
 
     def new
@@ -19,6 +18,7 @@ module Koremita
     end
 
     def update
+      authorize @comment
     end
 
     def set_comment

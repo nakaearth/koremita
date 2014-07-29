@@ -1,4 +1,4 @@
-require 'groonga'
+#require 'groonga'
 
 module Searchable
   extend ActiveSupport::Concern
