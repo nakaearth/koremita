@@ -1,4 +1,4 @@
-#require 'groonga'
+# require 'groonga'
 
 module Searchable
   extend ActiveSupport::Concern
@@ -12,10 +12,10 @@ module Searchable
   end
 
   module ClassMethods
-    def search(path = "/tmp/koremita.db", table_name, search_value)
+    def search(path = '/tmp/koremita.db', _table_name, _search_value)
       Groonga::Database.new(path)
-      search_model = Groonga[table_name]
-      # TODO 検索方式どうするか検討すること
+      # search_model  =  Groonga[table_name]
+      # TODO: 検索方式どうするか検討すること
       #      @result = search_model.select { |record| record.title =~ search_value }
     end
   end
