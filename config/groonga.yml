@@ -1,8 +1,8 @@
 development:
   database: /tmp/koremita.eb
 
-test:
-  database: db/groonga/test/db
+# test:
+#   database: db/groonga/test/db
 
-production:
-  database: db/groonga/production/db
+# production:
+#   database: db/groonga/production/db
