@@ -1,5 +1,4 @@
-<menu>
-  <div class='login_user_info'>
+<div class='login_user_info'>
 <% if current_user %>
   Logged in as <strong><%= current_user.email %></strong>.
   <%= image_tag  current_user.auth_providers[0].try(:image_path), size: '40x40' %>
@@ -7,11 +6,8 @@
 <% else %>
   <%= link_to "Facebookでログイン", "/facebook/login"  %> |
 <% end %>
-  </div>
-  <div class='contents_menu' >
-    <%= link_to_unless_current '映画一覧', { action: 'index', controller: 'koremita/movies' } %> &nbsp;&nbsp;|
-  <% if current_user %>
-    <%= link_to_unless_current '映画登録', { action: 'new', controller: 'koremita/movies' } %> &nbsp;&nbsp;|
-  <% end %>
-  </div>
-</menu>
+</div>
+<li><%= link_to_unless_current '映画一覧', { action: 'index', controller: 'koremita/movies' } %></li>
+<% if current_user %>
+<li><%= link_to_unless_current '映画登録', { action: 'new', controller: 'koremita/movies' } %></li>
+<% end %>

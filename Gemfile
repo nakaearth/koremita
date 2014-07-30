@@ -148,3 +148,6 @@ gem "pundit"
 # font Awesome
 gem 'font-awesome-rails'
 
+# layout
+gem "twitter-bootstrap-rails"
+
