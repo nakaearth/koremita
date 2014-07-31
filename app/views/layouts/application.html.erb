@@ -63,13 +63,14 @@
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
              <% if current_user %>
-             <%= image_tag  current_user.auth_providers[0].try(:image_path), size: '40x40' %>
+               <%= image_tag  current_user.auth_providers[0].try(:image_path), size: '40x40' %><br/>
+               <%= current_user.auth_providers[0].name %>
              <%= link_to "ログアウト", logout_path  %>
              <% else %>
-             <i class="fa fa-cog"></i>%= link_to "Facebookでログイン", "/facebook/login"  %> 
+               <a href="/facebook/login" class="list-group-item"><i class="fa fa-cog fa-fw"></i>Facebookでログイン %></a> 
              <% end %>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+             <li><a href="/koremita/movies" class="list-group-item"><i class="fa fa-home fa-fw"></i>マイページ</a></li>
+             <li><a href="/koremita/photos" class="list-group-item"><i class="fa fa-camera-retro fa-lg"></i></a></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
