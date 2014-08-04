@@ -64,7 +64,7 @@
               <li class="nav-header"></li>
              <% if current_user %>
               <li><a href="/koremita/movies" class="list-group-item"><i class="fa fa-home fa-fw"></i>マイページ</a></li>
-             <li><a href="/koremita/movies" class="list-group-item"><i class="fa fa-camera-retro fa-lg"></i></a></li>
+             <li><a href="/koremita/movies" class="list-group-item"><i class="fa fa-camera-retro fa-lg"></i>映画一覧</a></li>
                <%= image_tag  current_user.auth_providers[0].try(:image_path), size: '40x40' %><br/>
                <%= current_user.auth_providers[0].try(:screen_name) %>
              <%= link_to "ログアウト", logout_path  %>
