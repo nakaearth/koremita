@@ -1,9 +1,10 @@
 module Koremita
   class CommentsController < ApplicationController
-    before_action :set_comment
+    before_action :set_movie
+    before_action :set_comment, only: [:show, :edit]
 
     def index
-      @comments = @movie.comments.page(params[:page]).per(20)
+      @comments = @movie.movie_comments.page(params[:page]).per(20)
     end
 
     def show
