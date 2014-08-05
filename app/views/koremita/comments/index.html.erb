@@ -1,6 +1,8 @@
 <%= @movie.name %>
 <br/>
 <%= link_to 'コメントを投稿する', new_koremita_movie_comment_path %>
+<div class='comment_list'>
 <% @movie.comments.each do |comment| %>
-  <%= comment.comment %>
+  <div class='comment'><%= comment.comment %></div>
 <% end %>
+</div>
