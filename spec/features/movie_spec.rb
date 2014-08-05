@@ -10,18 +10,18 @@ describe 'ユーザがfacebookログインしていてtopページをみる', ty
       ApplicationController.any_instance.stub(:current_user).and_return(current_user)
     end
     it '映画一覧画面が表示' do
-#     visit root_path
-#     expect(page).to have_content '映画一覧'
-#     click_link '映画一覧'
-#     page.save_screenshot 'movie_screenshot1.png'
-#     expect(page.current_path).to eql '/'
-#     expect(page.current_path).to eql '/koremita/movies'
+      # visit root_path
+      # expect(page).to have_content '映画一覧'
+      # click_link '映画一覧'
+      # page.save_screenshot 'movie_screenshot1.png'
+      # expect(page.current_path).to eql '/'
+      # expect(page.current_path).to eql '/koremita/movies'
     end
     it 'ユーザの情報が表示される' do
-#     visit root_path
-#     click_link '映画一覧'
-#     page.save_screenshot 'movie_screenshot2.png'
-#     expect(page).to have_content 'test@gmail.com'
+      # visit root_path
+      # click_link '映画一覧'
+      # page.save_screenshot 'movie_screenshot2.png'
+      # expect(page).to have_content 'test@gmail.com'
     end
   end
 
@@ -31,8 +31,8 @@ describe 'ユーザがfacebookログインしていてtopページをみる', ty
     end
 
     it 'userにひもつく映画一覧が表示' do
-#     visit koremita_movies_path
-#     expect(page).to have_content '映画一覧'
+      # visit koremita_movies_path
+      # expect(page).to have_content '映画一覧'
     end
   end
 end
