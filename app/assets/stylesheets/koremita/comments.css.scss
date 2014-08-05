@@ -1,3 +1,31 @@
 // Place all the styles related to the koremita/comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.comment_list {
+  position: relative;
+  text-align: left;
+  font-weight: bold;
+  border: 2px solid #333333;
+  background-color: #FFFFFF;
+  vertical-align: text-top;
+  width: 1000px;
+  overflow: visible;
+  padding: 10px;
+  margin: 10px;
+  z-index: 1;
+  -webkit-border-radius: 10px;/* Safari、Google Chrome */
+  -moz-border-radius: 10px;/* Firefox */
+}
+.comment {
+  background-color: #FFFFDB;
+  border: 1px solid #333333;
+  font-size: 10pt;
+  width: 800px;
+  margin: 3px;
+  cursor: move;
+  padding: 5px;
+  margin: 5px;
+  -webkit-border-radius: 10px;/* Safari、Google Chrome */
+  -moz-border-radius: 10px;/* Firefox */
+}
+

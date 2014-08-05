@@ -1,7 +1,7 @@
 module Koremita
   class MoviesController < ContentsController
     before_action :set_movie, only: [:show, :edit, :update]
-    
+
     def index
       @movies = Movie.page(params[:page]).per(20)
     end
@@ -33,14 +33,14 @@ module Koremita
 
     def update
       ActiveRecord::Base.transaction do
-        movie = @movie.update(movie_params)
+        @movie.update(movie_params)
       end
     end
 
     private
 
     def movie_params
-      params.require(:movie).permit(:title, :photo, :photo_cache,  :description, :view_flag, :rate)
+      params.require(:movie).permit(:title, :photo, :photo_cache,  :description, :view_flag, :rate) if params[:movie]
     end
 
     def movie_youtub_params
@@ -50,6 +50,5 @@ module Koremita
     def set_movie
       @movie = Movie.find(params[:id])
     end
-
   end
 end
