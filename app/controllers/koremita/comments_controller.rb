@@ -1,28 +1,38 @@
 module Koremita
-  class CommentsController < ApplicationController
-    before_action :set_comment
+  module Movie
+    class CommentsController < ApplicationController
+      before_action :set_comment
 
-    def show
-    end
+      def index
+        @comments = @movie.comments.page(params[:page]).per(20)
+      end
 
-    def new
-      @comment = Comment.new
-    end
+      def show
+      end
 
-    def create
-      @comment = Comment.new
-    end
+      def new
+        @comment = Comment.new
+      end
 
-    def edit
-      authorize @comment
-    end
+      def create
+        @comment = Comment.new
+      end
 
-    def update
-      authorize @comment
-    end
+      def edit
+        authorize @comment
+      end
 
-    def set_comment
-      @comment = Comment.find(params[:id])
+      def update
+        authorize @comment
+      end
+
+      def set_movie
+        @movie = Movie.find(params[:movie_id])
+      end
+
+      def set_comment
+        @comment = Comment.find(params[:id])
+      end
     end
   end
 end
