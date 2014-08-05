@@ -22,7 +22,7 @@ FactoryGirl.define do
   end
 
   factory :other_user, class: User do
-    sequence(:email) { |n| "test_other#{n}@gmail.com" } 
+    sequence(:email) { |n| "test_other#{n}@gmail.com" }
     sequence(:name) { |n| "test_user_other#{n}" }
   end
 end
