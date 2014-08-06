@@ -1,7 +1,7 @@
 module Koremita
   class CommentsController < ApplicationController
     before_action :set_movie
-    before_action :set_comment, only: [:show, :edit]
+    before_action :set_comment, only: [:show, :edit, :destroy]
 
     def index
       @comments = @movie.movie_comments.page(params[:page]).per(20)
@@ -16,6 +16,7 @@ module Koremita
 
     def create
       @comment = Comment.new
+      redirect_to koremita_movie_comment_path(@comment)
     end
 
     def edit
@@ -24,6 +25,11 @@ module Koremita
 
     def update
       authorize @comment
+    end
+
+    def destroy
+      authorize @comment
+      redirect_to koremita_movie_comments_path 
     end
 
     def set_movie
