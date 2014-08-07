@@ -1,12 +1,11 @@
 AllCops:
-  Include:
-    - Gemfile
-    - Rakefile
-    - config.ru
+  RunRailsCops: true
   Exclude:
-    - bin/*
-    - db/*
-    - config/*
+    - bin/**/*
+    - db/**/*.rb
+    - config/**/*
+    - vendor/**/*
+    - spec/factories/**/*
 
 LineLength:
   Max: 320

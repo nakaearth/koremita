@@ -10,7 +10,6 @@ describe Koremita::CommentsController do
   let!(:my_movie) { create(:test_movie, user: current_user, created_at: exec_time) }
   let!(:comments) { create_list(:comment, 5, movie: my_movie, user: other_user, created_at: exec_time) }
   let!(:current_user_comments) { create_list(:comment, 5, movie: my_movie, user: current_user, created_at: exec_time) }
- 
 
   describe '映画に関連するコメントの一覧情報を表示するindexメソッドを呼ぶ' do
     let(:params) { { movie_id: my_movie.id } }

@@ -29,7 +29,7 @@ module Koremita
 
     def destroy
       authorize @comment
-      redirect_to koremita_movie_comments_path 
+      redirect_to koremita_movie_comments_path
     end
 
     def set_movie
