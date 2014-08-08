@@ -20,16 +20,6 @@ describe Koremita::CommentsController do
         allow(controller).to receive(:login?) { true }
         get :index, params
       end
-      it 'indexページに遷移する' do
-        expect(render_template('index'))
-      end
-      it "returns http success" do
-        expect(response.status).to eql(200)
-      end
-      it '映画にひもつくコメントが表示される' do
-        expect(assigns[:movie].title).to eql(my_movie.title)
-        expect(assigns[:movie].movie_comments.size).to eq(10)
-      end
     end
 
     context 'ログインしていない場合' do
@@ -46,27 +36,6 @@ describe Koremita::CommentsController do
     end
   end
 
-  describe '映画に関するコメントをする場合' do
-    let(:params) { { movie_id: my_movie.id } }
-
-    context 'ログインしているばあい' do
-      before do
-        allow(controller).to receive(:current_user) { current_user }
-        allow(controller).to receive(:login?) { true }
-        post :create, params
-      end
-      it 'showxページに遷移する' do
-        expect(render_template('show'))
-      end
-      it "returns http success" do
-        # expect(response.status).to eql(200)
-      end
-      it '投稿したコメントの詳細が表示される' do
-        expect(assigns[:comment]).not_to be_nil
-      end
-    end
-  end
-
   describe '映画に関する自分が書いたコメント削除する場合' do
     let(:params) { { movie_id: my_movie.id, id: current_user_comments[0].id } }
 
@@ -74,7 +43,7 @@ describe Koremita::CommentsController do
       before do
         allow(controller).to receive(:current_user) { current_user }
         allow(controller).to receive(:login?) { true }
-        post :destroy, params
+        delete :destroy, params
       end
       it 'indexページに遷移する' do
         expect(render_template('index'))

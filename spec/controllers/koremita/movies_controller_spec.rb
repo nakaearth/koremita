@@ -111,4 +111,17 @@ describe Koremita::MoviesController do
       end
     end
   end
+
+  describe '映画の詳細を閲覧する時に呼ばれるshowメソッド' do
+    context '映画の詳細とコメントが見れる場合' do
+      before do
+        allow(controller).to receive(:current_user) { current_user }
+        get :show, id: movies[0].id
+      end
+
+      it 'showテンプレートに遷移する' do
+        expect(render_template 'show')
+      end
+    end
+  end
 end
