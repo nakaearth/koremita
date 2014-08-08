@@ -1,13 +1,9 @@
 <div class='movie_detail' %>
+<%= cl_image_tag(movie.photo, width: 80, height: 80, crop: :fill) %>
 <%= @movie.title %><br/>
 <%= @movie.format_created_at %><br/>
 <%= @movie.description %>
 </div>
-<div class='comment_list'>
-  <% @movie.movie_comments.each do |c| %>
-    <div class='comment'>
-      <%= c.comment %>
-    </div>
-  <% end %>
-</div>
-<%= link_to 'コメント一覧', koremita_movie_comments_path(@movie.id) %>
+<%= render 'comments/form' %>
+<%= render 'comments/movie_comment_list' %>
+
