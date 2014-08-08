@@ -113,15 +113,20 @@ describe Koremita::MoviesController do
   end
 
   describe '映画の詳細を閲覧する時に呼ばれるshowメソッド' do
+    let!(:comments) { create_list(:comment, 10, user: current_user, movie: movies[0]) }
+
     context '映画の詳細とコメントが見れる場合' do
       before do
         allow(controller).to receive(:current_user) { current_user }
-        get :show, id: movies[0].id
+        get 'show', id: movies[0].id
       end
 
       it 'showテンプレートに遷移する' do
         expect(render_template 'show')
       end
+      # it '映画の情報がみれる' do
+      #   expect(assigns[:movie].title).to eq(movies[0].title)
+      # end
     end
   end
 end

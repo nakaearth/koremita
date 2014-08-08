@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/auth/failure" => "sessions#failuer"
 
   namespace :koremita do
-    resources :movies ,only: [:index, :show,  :new, :create] do
+    resources :movies ,only: [:index, :show, :new, :create] do
       collection do
         get 'my_movies'
       end
