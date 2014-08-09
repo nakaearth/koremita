@@ -118,15 +118,19 @@ describe Koremita::MoviesController do
     context '映画の詳細とコメントが見れる場合' do
       before do
         allow(controller).to receive(:current_user) { current_user }
-        get 'show', id: movies[0].id
+        allow(controller).to receive(:login?) { true }
+        get :show, id: movies[0].id
       end
 
       it 'showテンプレートに遷移する' do
         expect(render_template 'show')
       end
-      # it '映画の情報がみれる' do
-      #   expect(assigns[:movie].title).to eq(movies[0].title)
-      # end
+      it '映画の情報がみれる' do
+        expect(assigns[:movie].title).to eq(movies[0].title)
+      end
+      it 'コメントの情報がみれる' do
+        expect(assigns[:comments][0].message).to eq(comments[0].message)
+      end
     end
   end
 end

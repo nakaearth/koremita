@@ -1,6 +1,6 @@
 <%= form_for @movie, url: { action: 'create', controller: 'koremita/movies' }, :html => {:multipart => true} do |f| %>
   <%= f.label :title %>:<%= f.text_field :title %><br/>
-  <%= f.label :description %>:<%= f.text_area :description, :size => "90x30" %><br/>
+  <%= f.label :description %>:<%= f.text_area :description, :size => "150x20" %><br/>
   <%= f.label :photo %>:<%= @movie.photo.thumbnail.url if @movie.photo %> <%= f.file_field :photo %>
   <%= f.submit %>
 <% end %>

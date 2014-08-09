@@ -11,6 +11,7 @@ module Koremita
     end
 
     def show
+      @comment = Comment.new
       @comments = @movie.movie_comments.page(params[:page]).per(3)
     end
 
