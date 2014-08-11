@@ -13,7 +13,7 @@ Rails.application.routes.draw do
         get 'my_movies'
       end
       resources :photos
-      resources :comments, only: [:index, :create, :update, :destroy]
+      resources :comments
     end
   end
 

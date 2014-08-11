@@ -4,6 +4,6 @@
 <%= @movie.format_created_at %><br/>
 <%= @movie.description %>
 </div>
-<hr>
-<%= render 'koremita/comments/form' %>
+<hr/>
+<%= link_to 'コメント', new_koremita_movie_comment_path(@movie) %>
 <%= render 'koremita/comments/movie_comment_list' %>

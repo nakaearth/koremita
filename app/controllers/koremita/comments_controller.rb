@@ -12,8 +12,7 @@ module Koremita
     end
 
     def create
-      comment = Comment.new(comment_params)
-      comment.save!
+      @movie.movie_comments.create!(comment_params)
       redirect_to koremita_movie_path(@movie)
     end
 
