@@ -3,7 +3,7 @@ require 'elasticsearch'
 module Search
   class Movie
     def initialize
-      @es = Elasticsearch::Client.new hosts: [ENV['BONSAI_ELASTICSEARCH_HOST']], reload_connections: true
+      @es = Elasticsearch::Client.new hosts: [ENV['BONSAI_URL']], reload_connections: true
     end
 
     # type_nameは例えばmovieとかそういう値
