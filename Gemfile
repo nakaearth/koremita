@@ -138,9 +138,8 @@ group :test do
   gem 'rake-compiler'
 end
 
-# mroonga対応
-# gem 'rroonga'
-# gem 'activegroonga'
+# elasticsearch対応
+gem 'elasticsearch'
 
 # 権限カンンリ
 gem "pundit"
