@@ -15,9 +15,9 @@
 #
 
 class Movie < ActiveRecord::Base
-  include Searchable
+  # include Searchable
 
-  after_save :create_search_data
+  after_save :save_search_data
 
   belongs_to :user
   has_one :youtub
@@ -26,7 +26,8 @@ class Movie < ActiveRecord::Base
   validates :title, presence: true, length: { maximum: 80 }
   validates :description, presence: true, length: { maximum: 500 }
 
-  def create_search_data
-    SearchMovie.create(title: title) if Rails.env.development?
+  def save_search_data
+    es = Search::Movie.new
+    es.index self, index_value: 'koremita_app'
   end
 end

@@ -23,7 +23,7 @@ module Koremita
       register =  MovieRegister.new(current_user)
       movie = register.regist_movie(movie_params, movie_youtub_params)
       if movie
-        search_engine movie
+        # search_engine movie
         redirect_to action: :show, id: movie.id,  notice: 'movie data rec'
       else
         render action: :new
@@ -51,11 +51,6 @@ module Koremita
 
     def set_movie
       @movie = Movie.find(params[:id])
-    end
-
-    def search_engine(movie)
-      es = Search::Movie.new
-      es.index movie, 'koremita_app'
     end
   end
 end

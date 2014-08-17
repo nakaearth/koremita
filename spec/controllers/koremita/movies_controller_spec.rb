@@ -133,4 +133,20 @@ describe Koremita::MoviesController do
       end
     end
   end
+
+  describe '検索エンジンに登録する処理' do
+    let!(:search_movie) { create(:test_movie) }
+
+    context '映画を一つ登録した後に呼ぶ' do
+      before do
+        search_movie.send('save_search_data')
+      end
+
+      it '登録した結果を検索できる' do
+        es = Search::Movie.new
+        document = es.document search_movie.id, index_value: 'koremita_app'
+        expect(document).not_to be_nil
+      end
+    end
+  end
 end

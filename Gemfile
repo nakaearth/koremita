@@ -66,6 +66,7 @@ group :development, :test do
   gem 'guard-rubocop'
   gem 'terminal-notifier-guard'
   gem 'parallel_tests'
+  gem 'rake_shared_context'
 end
 gem 'spring' , '1.1.2'
 
