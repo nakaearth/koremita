@@ -1,6 +1,8 @@
 <li><%= link_to_unless_current '映画一覧', { action: 'index', controller: 'koremita/movies' } %></li>
 <li>
-ここに検索formを追加
+<%= form_for @search_movie, url: 'koremita/search/movies' do |f| %>
+  <%= f.text_field :keyword %> <%= f.submit '検索' %>
+<% end %>
 </li>
 <% if current_user %>
 <li><%= link_to_unless_current '映画登録', { action: 'new', controller: 'koremita/movies' } %></li>
