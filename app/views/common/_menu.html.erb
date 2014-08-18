@@ -1,4 +1,7 @@
 <li><%= link_to_unless_current '映画一覧', { action: 'index', controller: 'koremita/movies' } %></li>
+<li>
+ここに検索formを追加
+</li>
 <% if current_user %>
 <li><%= link_to_unless_current '映画登録', { action: 'new', controller: 'koremita/movies' } %></li>
 <% end %>
