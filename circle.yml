@@ -1,0 +1,10 @@
+machine:
+  ruby:
+    version:
+      2.1.1
+
+test:
+  pre:
+    - bundle exec rake rubocop
+  override:
+    - bundle exec rake spec
