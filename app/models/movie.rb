@@ -27,7 +27,6 @@ class Movie < ActiveRecord::Base
   validates :description, presence: true, length: { maximum: 500 }
 
   def save_search_data
-    es = Search::Movie.new
-    es.index self, index_value: 'koremita_app'
+    Search::Movie.new.index self, index_value: 'koremita_app' unless Rails.env.test?
   end
 end
