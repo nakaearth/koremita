@@ -1,7 +1,7 @@
 module Koremita
   module Search
     class MoviesController < ApplicationController
-      def create 
+      def create
         @results = Search::Movie.new.search search_keyword_params
       end
 
