@@ -23,10 +23,10 @@ describe Koremita::MoviesController do
         expect(render_template('index'))
       end
       it "returns http success" do
-        expect(response.status).to eql(200)
+        expect(response.status).to eq(200)
       end
       it '映画が1ページ分表示される' do
-        expect(assigns[:movies].size).to eql(20)
+        expect(assigns[:movies].size).to eq(20)
         expect(assigns[:movies][0].format_created_at).to eql(exec_time.strftime('%Y-%m-%d %H:%M'))
       end
     end
@@ -43,10 +43,10 @@ describe Koremita::MoviesController do
         expect(render_template('index'))
       end
       it "returns http success" do
-        expect(response.status).to eql(200)
+        expect(response.status).to eq(200)
       end
       it '映画が1ページ分表示される' do
-        expect(assigns[:movies].size).to eql(15)
+        expect(assigns[:movies].size).to eq(15)
       end
     end
 

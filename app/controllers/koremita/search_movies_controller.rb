@@ -1,7 +1,11 @@
+require 'search/movie'
+
 module Koremita
   class SearchMoviesController < ApplicationController
     def create
-      @results = Search::Movie.new.search search_keyword_params
+      @results = Search::Movie.new.search search_keyword_params unless Rails.env.test?
+      @results = []
+      @search_movie = SearchMovie.new
     end
 
     private
