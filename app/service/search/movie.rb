@@ -3,13 +3,14 @@ require 'elasticsearch'
 module Search
   class Movie
     def initialize
-      @es = Elasticsearch::Client.new hosts: ENV['BONSAI_URL'], reload_connections: true
+      @es = Elasticsearch::Client.new hosts: ENV['BONSAI_URL'], log:true, reload_connections: true
     end
 
     # type_nameは例えばmovieとかそういう値
     def index(movie, index_value: ENV['INDEX_NAME'], type_value: 'movie_search')
       @es.index index: index_value, type: type_value,
                 id: movie.id, body: { title: movie.title }
+      @es.indices.refresh index: index_value
     end
 
     def document(id, index_value: ENV['INDEX_NAME'], type_value: 'movie_search')
