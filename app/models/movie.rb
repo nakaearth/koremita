@@ -15,8 +15,6 @@
 #
 
 class Movie < ActiveRecord::Base
-  # include Searchable
-
   after_save :save_search_data
 
   belongs_to :user
