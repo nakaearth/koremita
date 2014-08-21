@@ -141,7 +141,7 @@ end
 
 # elasticsearch対応
 gem 'elasticsearch'
-gem 'elasticsearch-model'
+gem 'elasticsearch-persistence'
 gem 'elasticsearch-rails'
 
 # 権限カンンリ

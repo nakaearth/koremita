@@ -27,7 +27,12 @@ class Movie < ActiveRecord::Base
   validates :description, presence: true, length: { maximum: 500 }
 
   def save_search_data
-    client = Search::Movie.new
-    client.index(self, index_value: 'koremita_app') unless Rails.env.test?
+    # client = Search::Movie.new
+    # client.index(self, index_value: 'koremita_app') unless Rails.env.test?
+    Search::Connection.connect.save self unless Rails.env.test?
+  end
+
+  def to_hash
+    { id: id, title: title, desctiption: description, user_id: user_id }
   end
 end
