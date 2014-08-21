@@ -11,10 +11,10 @@ module Search
         index :koremita_app
 
         # Set a custom document type
-        type :movie_search
+        type :movie
 
-        # Specify the class to inicialize when deserializing documents
-        klass SearchMovie
+        # # Specify the class to inicialize when deserializing documents
+        # klass SearchMovie
 
         # Configure the settings and mappings for the Elasticsearch index
         settings number_of_shards: 1 do
@@ -24,14 +24,14 @@ module Search
         end
 
         # Customize the serialization logic
-        def serialize(document)
-          super.merge(my_special_key: 'my_special_stuff')
-        end
+        # def serialize(document)
+        #  super.merge(:my_special_stuff: 'my_special_stuff')
+        # end
 
         # Customize the de-serialization logic
-        def deserialize(document)
-          super
-        end
+        # def deserialize(document)
+        #   super
+        # end
       end
       @repository
     end

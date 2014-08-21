@@ -33,6 +33,6 @@ class Movie < ActiveRecord::Base
   end
 
   def to_hash
-    { id: id, title: title, desctiption: description, user_id: user_id }
+    { id: id, title: title, description: description, user_id: user_id }
   end
 end
