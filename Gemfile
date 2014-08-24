@@ -140,9 +140,9 @@ group :test do
 end
 
 # elasticsearch対応
-gem 'elasticsearch'
 gem 'elasticsearch-persistence'
-gem 'elasticsearch-rails'
+# gem 'elasticsearch'
+# gem 'elasticsearch-rails'
 
 # 権限カンンリ
 gem "pundit"

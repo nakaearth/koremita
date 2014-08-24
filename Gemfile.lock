@@ -143,7 +143,6 @@ GEM
       elasticsearch-model (>= 0.1)
       hashie
       virtus
-    elasticsearch-rails (0.1.4)
     elasticsearch-transport (1.0.4)
       faraday
       multi_json
@@ -503,9 +502,7 @@ DEPENDENCIES
   coveralls
   dalli
   database_rewinder
-  elasticsearch
   elasticsearch-persistence
-  elasticsearch-rails
   factory_girl_rails
   font-awesome-rails
   foreman
