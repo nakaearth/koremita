@@ -1,10 +1,8 @@
-require 'search/movie'
-
 module Koremita
   class SearchMoviesController < ApplicationController
     def create
       repository = Search::Connection.connect
-      @results = repository.search(query: { match: { title: params[:search_movie][:title] } }) unless Rails.env.test?
+      @results = repository.search(params[:search_movie][:title]) unless Rails.env.test?
       @results = [] if Rails.env.test?
       @search_movie = SearchMovie.new
     end
