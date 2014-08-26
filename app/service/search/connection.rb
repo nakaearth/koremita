@@ -15,7 +15,7 @@ module Search
 
         # Configure the settings and mappings for the Elasticsearch index
         settings number_of_shards: 1 do
-          mapping do
+          mappings do
             indexes :title, analyzer: 'kuromoji'
             indexes :description, analyzer: 'kuromoji'
           end
