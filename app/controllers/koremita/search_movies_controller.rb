@@ -2,6 +2,7 @@ module Koremita
   class SearchMoviesController < ApplicationController
     def create
       repository = Search::Connection.connect
+      # ここの書き方の問題?
       @results = repository.search(params[:search_movie][:title]) unless Rails.env.test?
       @results = [] if Rails.env.test?
       @search_movie = SearchMovie.new
