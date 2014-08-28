@@ -218,6 +218,10 @@ GEM
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    koala (1.10.0)
+      addressable
+      faraday
+      multi_json
     launchy (2.4.2)
       addressable (~> 2.3)
     listen (2.7.9)
@@ -516,6 +520,7 @@ DEPENDENCIES
   jquery-rails
   json
   kaminari
+  koala
   newrelic_rpm
   nio4r (= 0.5.0)
   omniauth-facebook

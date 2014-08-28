@@ -153,3 +153,6 @@ gem 'font-awesome-rails'
 # layout
 gem "twitter-bootstrap-rails"
 
+# facebook graph api
+gem 'koala'
+
