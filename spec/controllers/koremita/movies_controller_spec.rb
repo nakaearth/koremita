@@ -17,6 +17,10 @@ describe Koremita::MoviesController do
         @user = current_user
         allow(controller).to receive(:current_user) { current_user }
         allow(controller).to receive(:login?) { true }
+        double(FacebookGraph)
+        # stub_graph = double(FacebookGraph)
+        # stub_graph.should_receive(:me).and_return(nil)
+
         get 'index'
       end
       it 'indexページに遷移する' do
