@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716035743) do
+ActiveRecord::Schema.define(version: 20140908155059) do
+
+  create_table "api_tokens", force: true do |t|
+    t.string   "acces_token"
+    t.integer  "user_id",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "api_tokens", ["user_id"], name: "index_api_tokens_on_user_id"
 
   create_table "auth_providers", force: true do |t|
     t.integer  "user_id"
@@ -43,12 +52,14 @@ ActiveRecord::Schema.define(version: 20140716035743) do
     t.text     "description"
     t.integer  "view_flag"
     t.integer  "rate"
-    t.integer  "user_id"
+    t.integer  "user_id",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "category"
     t.string   "photo"
   end
+
+  add_index "movies", ["user_id"], name: "index_movies_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email"

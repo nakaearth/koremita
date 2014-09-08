@@ -6,8 +6,7 @@ class CreateMovies < ActiveRecord::Migration
       t.text :description
       t.integer :view_flag
       t.integer :rate
-      t.integer :user_id
-
+      t.references :user, index: true, null: false
       t.timestamps
     end
   end

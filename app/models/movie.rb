@@ -7,11 +7,15 @@
 #  description :text
 #  view_flag   :integer
 #  rate        :integer
-#  user_id     :integer
+#  user_id     :integer          not null
 #  created_at  :datetime
 #  updated_at  :datetime
 #  category    :string(255)
 #  photo       :string(255)
+#
+# Indexes
+#
+#  index_movies_on_user_id  (user_id)
 #
 
 class Movie < ActiveRecord::Base

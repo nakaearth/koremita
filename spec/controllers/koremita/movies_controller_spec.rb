@@ -139,7 +139,7 @@ describe Koremita::MoviesController do
   end
 
   describe '検索エンジンに登録する処理' do
-    let!(:search_movie) { create(:test_movie) }
+    let!(:search_movie) { create(:test_movie, user: current_user) }
 
     context '映画を一つ登録した後に呼ぶ' do
       before do
