@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Koremita::SearchMoviesController do
+describe Koremita::SearchMoviesController, type: :controller do
   render_views
   let!(:current_user) { create(:current_user) }
 

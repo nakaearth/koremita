@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Koremita::CommentsController do
+describe Koremita::CommentsController, type: :controller do
   render_views
 
   let!(:current_user) { create(:current_user) }
@@ -30,6 +30,7 @@ describe Koremita::CommentsController do
         # allow(controller).to receive(:login?) { false }
         get :index, params
       end
+
       it 'HTTP statusが302が返る' do
         expect(response.status).to eql(302)
       end
@@ -45,12 +46,15 @@ describe Koremita::CommentsController do
         allow(controller).to receive(:login?) { true }
         delete :destroy, params
       end
+
       it 'indexページに遷移する' do
         expect(render_template('index'))
       end
+
       it "returns http success" do
         # expect(response.status).to eql(200)
       end
+
       it '投稿したコメントの詳細が表示される' do
         expect(assigns[:comment]).not_to be_nil
       end

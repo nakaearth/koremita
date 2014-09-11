@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe TopController do
 
@@ -8,5 +8,4 @@ describe TopController do
       expect(response).to be_success
     end
   end
-
 end

@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe SessionsController do
+describe SessionsController, type: :controller do
   render_views
 
   let!(:current_user) { create(:current_user) }
@@ -25,6 +25,7 @@ describe SessionsController do
       it 'response status is 302.' do
         expect(response.status).to eql(302)
       end
+
       it 'render file is show' do
         expect(render_template 'top#index')
       end

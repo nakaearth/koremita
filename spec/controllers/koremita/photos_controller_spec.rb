@@ -1,5 +1,5 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Koremita::PhotosController do
+describe Koremita::PhotosController, type: :controller do
 
 end

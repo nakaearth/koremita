@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Koremita::MoviesController, :type => :controller do
+describe Koremita::MoviesController, type: :controller do
   render_views
 
   let!(:current_user) { create(:current_user) }
@@ -15,7 +15,6 @@ describe Koremita::MoviesController, :type => :controller do
     context 'ログインしているばあい' do
       before do
         @user = current_user
-        controller = double('controller')
         allow(controller).to receive(:current_user) { current_user }
         allow(controller).to receive(:login?) { true }
         get 'index'
@@ -38,7 +37,6 @@ describe Koremita::MoviesController, :type => :controller do
     context 'ログインしていてページングする場合' do
       before do
         @user = current_user
-        controller = double('controller')
         allow(controller).to receive(:current_user) { current_user }
         allow(controller).to receive(:login?) { true }
         params = { page: 2 }
@@ -68,13 +66,12 @@ describe Koremita::MoviesController, :type => :controller do
   describe 'ログインしたユーザの映画一覧情報を表示するmy_moviesメソッドを呼ぶ' do
     context 'ログインしている場合' do
       before do
-        controller = double('controller')
         allow(controller).to receive(:current_user) { current_user }
         allow(controller).to receive(:login?) { true }
         get 'my_movies'
       end
 
-      it { response.should be_success }
+      it { expect(response).to be_success }
       it { expect(current_user.movies).not_to be_nil }
       it { expect(current_user.movies.size).to eql(5) }
       it { expect(render_with_layout 'application') }
@@ -86,7 +83,6 @@ describe Koremita::MoviesController, :type => :controller do
   describe '映画情報を登録する時に呼ばれるcreate' do
     context '値がちゃんと入力された場合' do
       before do
-        controller = double('controller')
         allow(controller).to receive(:current_user) { current_user }
         params =  { movie: { title: 'test movie', image_url: 'http://test.com/hoge.jpg',  description: 'test test test', rate: 100 }, youtub: { title: 'test youtub', url: 'http://hogehoge.jp/test.mp3' } }
         post :create, params
@@ -133,7 +129,6 @@ describe Koremita::MoviesController, :type => :controller do
 
     context '映画の詳細とコメントが見れる場合' do
       before do
-        controller = double('controller')
         allow(controller).to receive(:current_user) { current_user }
         allow(controller).to receive(:login?) { true }
         get :show, id: movies[0].id
@@ -158,7 +153,6 @@ describe Koremita::MoviesController, :type => :controller do
 
     context '映画を一つ登録した後に呼ぶ' do
       before do
-        controller = double('controller')
         search_movie.send('save_search_data')
       end
 
