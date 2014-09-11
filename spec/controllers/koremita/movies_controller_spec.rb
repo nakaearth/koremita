@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Koremita::MoviesController do
+describe Koremita::MoviesController, type: :controller do
   render_views
 
   let!(:current_user) { create(:current_user) }
@@ -17,14 +17,17 @@ describe Koremita::MoviesController do
         @user = current_user
         allow(controller).to receive(:current_user) { current_user }
         allow(controller).to receive(:login?) { true }
-        get 'index'
+        get :index
       end
+
       it 'indexページに遷移する' do
-        expect(render_template('index'))
+        expect(response).to render_template 'index'
       end
+
       it "returns http success" do
         expect(response.status).to eq(200)
       end
+
       it '映画が1ページ分表示される' do
         expect(assigns[:movies].size).to eq(20)
         expect(assigns[:movies][0].format_created_at).to eql(exec_time.strftime('%Y-%m-%d %H:%M'))
@@ -37,22 +40,36 @@ describe Koremita::MoviesController do
         allow(controller).to receive(:current_user) { current_user }
         allow(controller).to receive(:login?) { true }
         params = { page: 2 }
-        get 'index', params
+        get :index, params
       end
+
       it 'indexページに遷移する' do
-        expect(render_template('index'))
+        expect(response).to render_template 'index'
       end
+
       it "returns http success" do
         expect(response.status).to eq(200)
       end
+
       it '映画が1ページ分表示される' do
         expect(assigns[:movies].size).to eq(15)
       end
     end
 
     context '未ログインの場合' do
+      before do
+        @user = current_user
+        allow(controller).to receive(:current_user) { current_user }
+        allow(controller).to receive(:login?) { false }
+        params = { page: 1 }
+        get :index, params
+      end
+      it "returns http success" do
+        expect(response.status).to eq(200)
+      end
+
       it 'top#indexに遷移する' do
-        expect(render_template('top#index'))
+        expect(response).to render_template 'top#index'
       end
     end
   end
@@ -62,13 +79,13 @@ describe Koremita::MoviesController do
       before do
         allow(controller).to receive(:current_user) { current_user }
         allow(controller).to receive(:login?) { true }
-        get 'my_movies'
+        get :my_movies
       end
       it { response.should be_success }
       it { expect(current_user.movies).not_to be_nil }
       it { expect(current_user.movies.size).to eql(5) }
       it { expect(render_with_layout 'application') }
-      it { expect(render_template 'my_movies') }
+      it { expect(response).to render_template 'my_movies' }
       it { expect(get: 'koremita/movies/my_movies').to route_to(controller: 'koremita/movies', action: 'my_movies') }
     end
   end
@@ -77,37 +94,39 @@ describe Koremita::MoviesController do
     context '値がちゃんと入力された場合' do
       before do
         allow(controller).to receive(:current_user) { current_user }
+        allow(controller).to receive(:login?) { true }
         params =  { movie: { title: 'test movie', image_url: 'http://test.com/hoge.jpg',  description: 'test test test', rate: 100 }, youtub: { title: 'test youtub', url: 'http://hogehoge.jp/test.mp3' } }
         post :create, params
       end
 
       it 'response status is 302.' do
-        expect(response.status).to eql(302)
-      end
-      it 'render file is show' do
-        expect(render_template 'show')
+        expect(response.status).to eq(302)
       end
     end
 
     context '渡されるパラメータが不正の場合(title未入力)' do
       before do
         allow(controller).to receive(:current_user) { current_user }
+        allow(controller).to receive(:login?) { true }
         params =  { movie: { image_url: 'http://test.com/hoge.jpg',  description: 'test test test', rate: 100 }, youtub: { title: 'test youtub', url: 'http://hogehoge.jp/test.mp3' } }
         post :create, params
       end
+
       it '入力画面に遷移する' do
-        expect(render_template 'new')
+        expect(response).to render_template 'new'
       end
     end
 
     context '渡されるパラメータが不正の場合(description未入力)' do
       before do
         allow(controller).to receive(:current_user) { current_user }
+        allow(controller).to receive(:login?) { true }
         params =  { movie: { title: 'test_title', image_url: 'http://test.com/hoge.jpg', rate: 100 }, youtub: { title: 'test youtub', url: 'http://hogehoge.jp/test.mp3' } }
         post :create, params
       end
+
       it '入力画面に遷移する' do
-        expect(render_template 'new')
+        expect(response).to render_template 'new'
       end
     end
   end
@@ -123,11 +142,13 @@ describe Koremita::MoviesController do
       end
 
       it 'showテンプレートに遷移する' do
-        expect(render_template 'show')
+        expect(response).to render_template 'show'
       end
+
       it '映画の情報がみれる' do
         expect(assigns[:movie].title).to eq(movies[0].title)
       end
+
       it 'コメントの情報がみれる' do
         expect(assigns[:comments][0].message).to eq(comments[0].message)
       end
@@ -135,7 +156,7 @@ describe Koremita::MoviesController do
   end
 
   describe '検索エンジンに登録する処理' do
-    let!(:search_movie) { create(:test_movie) }
+    let!(:search_movie) { create(:test_movie, user: :other_user) }
 
     context '映画を一つ登録した後に呼ぶ' do
       before do
