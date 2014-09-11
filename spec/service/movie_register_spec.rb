@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe MovieRegister do
   let!(:current_user) { FactoryGirl.create(:current_user) }
