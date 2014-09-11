@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Koremita::MoviesController do
   render_views
@@ -15,16 +15,20 @@ describe Koremita::MoviesController do
     context 'ログインしているばあい' do
       before do
         @user = current_user
+        controller = double('controller')
         allow(controller).to receive(:current_user) { current_user }
         allow(controller).to receive(:login?) { true }
         get 'index'
       end
+
       it 'indexページに遷移する' do
         expect(render_template('index'))
       end
+
       it "returns http success" do
         expect(response.status).to eq(200)
       end
+
       it '映画が1ページ分表示される' do
         expect(assigns[:movies].size).to eq(20)
         expect(assigns[:movies][0].format_created_at).to eql(exec_time.strftime('%Y-%m-%d %H:%M'))
@@ -34,17 +38,21 @@ describe Koremita::MoviesController do
     context 'ログインしていてページングする場合' do
       before do
         @user = current_user
+        controller = double('controller')
         allow(controller).to receive(:current_user) { current_user }
         allow(controller).to receive(:login?) { true }
         params = { page: 2 }
         get 'index', params
       end
+
       it 'indexページに遷移する' do
         expect(render_template('index'))
       end
+
       it "returns http success" do
         expect(response.status).to eq(200)
       end
+
       it '映画が1ページ分表示される' do
         expect(assigns[:movies].size).to eq(15)
       end
@@ -60,10 +68,12 @@ describe Koremita::MoviesController do
   describe 'ログインしたユーザの映画一覧情報を表示するmy_moviesメソッドを呼ぶ' do
     context 'ログインしている場合' do
       before do
+        controller = double('controller')
         allow(controller).to receive(:current_user) { current_user }
         allow(controller).to receive(:login?) { true }
         get 'my_movies'
       end
+
       it { response.should be_success }
       it { expect(current_user.movies).not_to be_nil }
       it { expect(current_user.movies.size).to eql(5) }
@@ -76,6 +86,7 @@ describe Koremita::MoviesController do
   describe '映画情報を登録する時に呼ばれるcreate' do
     context '値がちゃんと入力された場合' do
       before do
+        controller = double('controller')
         allow(controller).to receive(:current_user) { current_user }
         params =  { movie: { title: 'test movie', image_url: 'http://test.com/hoge.jpg',  description: 'test test test', rate: 100 }, youtub: { title: 'test youtub', url: 'http://hogehoge.jp/test.mp3' } }
         post :create, params
@@ -84,6 +95,7 @@ describe Koremita::MoviesController do
       it 'response status is 302.' do
         expect(response.status).to eql(302)
       end
+
       it 'render file is show' do
         expect(render_template 'show')
       end
@@ -91,10 +103,12 @@ describe Koremita::MoviesController do
 
     context '渡されるパラメータが不正の場合(title未入力)' do
       before do
+        controller = double('controller')
         allow(controller).to receive(:current_user) { current_user }
         params =  { movie: { image_url: 'http://test.com/hoge.jpg',  description: 'test test test', rate: 100 }, youtub: { title: 'test youtub', url: 'http://hogehoge.jp/test.mp3' } }
         post :create, params
       end
+
       it '入力画面に遷移する' do
         expect(render_template 'new')
       end
@@ -102,10 +116,12 @@ describe Koremita::MoviesController do
 
     context '渡されるパラメータが不正の場合(description未入力)' do
       before do
+        controller = double('controller')
         allow(controller).to receive(:current_user) { current_user }
         params =  { movie: { title: 'test_title', image_url: 'http://test.com/hoge.jpg', rate: 100 }, youtub: { title: 'test youtub', url: 'http://hogehoge.jp/test.mp3' } }
         post :create, params
       end
+
       it '入力画面に遷移する' do
         expect(render_template 'new')
       end
@@ -117,6 +133,7 @@ describe Koremita::MoviesController do
 
     context '映画の詳細とコメントが見れる場合' do
       before do
+        controller = double('controller')
         allow(controller).to receive(:current_user) { current_user }
         allow(controller).to receive(:login?) { true }
         get :show, id: movies[0].id
@@ -125,9 +142,11 @@ describe Koremita::MoviesController do
       it 'showテンプレートに遷移する' do
         expect(render_template 'show')
       end
+
       it '映画の情報がみれる' do
         expect(assigns[:movie].title).to eq(movies[0].title)
       end
+
       it 'コメントの情報がみれる' do
         expect(assigns[:comments][0].message).to eq(comments[0].message)
       end
@@ -139,6 +158,7 @@ describe Koremita::MoviesController do
 
     context '映画を一つ登録した後に呼ぶ' do
       before do
+        controller = double('controller')
         search_movie.send('save_search_data')
       end
 
