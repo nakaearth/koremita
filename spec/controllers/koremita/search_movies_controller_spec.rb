@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Koremita::SearchMoviesController, type: :controller do
   render_views
