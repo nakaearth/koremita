@@ -13,7 +13,7 @@
 #  index_users_on_email  (email) UNIQUE
 #
 
-require 'spec_helper'
+require 'rails_helper'
 
 describe User do
   let!(:current_user) { create(:current_user) }

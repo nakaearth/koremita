@@ -15,7 +15,7 @@
 #  index_comments_on_user_id   (user_id)
 #
 
-require 'spec_helper'
+require 'rails_helper'
 
 describe Comment do
   pending "add some examples to (or delete) #{__FILE__}"
