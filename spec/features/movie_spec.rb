@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'ユーザがfacebookログインしていてtopページをみる', type: :feature do
   let!(:current_user) { create(:current_user) }
