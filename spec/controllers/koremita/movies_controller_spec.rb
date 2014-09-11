@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Koremita::MoviesController do
+describe Koremita::MoviesController, :type => :controller do
   render_views
 
   let!(:current_user) { create(:current_user) }
