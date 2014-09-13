@@ -4,7 +4,7 @@ ruby '2.1.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.1'
 # Use sqlite3 as the database for Active Record
-group  :development, :test do
+group :development, :test do
   gem 'sqlite3', '1.3.7'
 end
 
@@ -40,7 +40,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
-gem 'json'
+gem 'json', '1.8.0'
+gem 'json_pure', '1.5.3'
 gem 'iconv'
 gem 'kaminari'
 gem 'dalli'

@@ -11,7 +11,7 @@ describe Koremita::SearchMoviesController do
         allow(controller).to receive(:current_user) { current_user }
         allow(controller).to receive(:login?) { true }
         allow(controller).to receive(:new_search_model) { movie }
-        movies = create_list(:test_movie, 10)
+        movies = create_list(:test_movie, 10, user: create(:other_user))
         allow(Search::Connection.new).to receive(:search) { movies }
         params = { search_movie: { keyword: 'アクション' } }
         post :create, params

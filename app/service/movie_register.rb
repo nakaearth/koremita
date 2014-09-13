@@ -18,7 +18,7 @@ class MovieRegister
                                  rate: movie_params[:rate])
 
       movie.photo = FileUploader.upload_cloudinary(movie_params[:photo], 'movie',
-                                                   movie.title + Time.zone.now.strftime('%Y%m%d%H%M'))
+                                                   'img_' + Time.zone.now.strftime('%Y%m%d%H%M'))
 
       # movieテーブルに登録
       movie.save!

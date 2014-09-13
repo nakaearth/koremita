@@ -1,7 +1,7 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
-guard 'rspec', :version => 2 do
+guard :rspec, cmd: 'bundle exec rspec' do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }
@@ -19,10 +19,9 @@ guard 'rspec', :version => 2 do
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
 end
 
-
-guard 'spring', :rspec_cli => '--color' do
+guard 'spring', rspec_cli: '--color' do
   watch(%r{^spec/.+_spec\.rb$})
-  watch(%r{^spec/spec_helper\.rb$})                   { |m| 'spec' }
+  watch(%r{^spec/spec_helper\.rb$})                   { |_m| 'spec' }
   watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
   watch(%r{^lib/(.+)\.rb$})                           { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch(%r{^app/controllers/(.+)_(controller)\.rb$})  do |m|
