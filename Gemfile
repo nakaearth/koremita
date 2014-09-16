@@ -48,6 +48,7 @@ gem 'dalli'
 gem 'whenever'
 gem 'simple_form'
 group :development, :test do
+  gem 'spring-commands-rspec'
   gem 'rspec-rails', '3.0.0.beta2'
   gem 'rake_shared_context'
   gem 'capybara', '~> 2.2.1'
@@ -55,9 +56,9 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'database_rewinder'
-  gem 'simplecov', :require => false
+  gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
-  gem 'coveralls', :require => false
+  gem 'coveralls', require: false
   gem 'brakeman'
   gem 'rails_best_practices'
   gem 'rubocop', '~> 0.23',  require: false
@@ -70,7 +71,7 @@ group :development, :test do
   gem 'parallel_tests'
   gem 'rake_shared_context'
 end
-gem 'spring' , '1.1.2'
+gem 'spring', '1.1.2'
 
 group :development, :test do
   gem 'pry-rails'
@@ -93,7 +94,7 @@ end
 gem 'heroku'
 
 # model info
-gem 'annotate', :git =>'https://github.com/ctran/annotate_models'
+gem 'annotate', git: 'https://github.com/ctran/annotate_models'
 
 # td
 gem 'td'
@@ -102,7 +103,7 @@ gem 'td-logger'
 # newrelic
 gem 'newrelic_rpm'
 
-# todo list generates
+# task list generates
 gem 'watson-ruby'
 
 # setting
@@ -154,4 +155,3 @@ gem 'font-awesome-rails'
 
 # layout
 gem "twitter-bootstrap-rails"
-
