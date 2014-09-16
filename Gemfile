@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 ruby '2.1.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.5'
+gem 'rails', '~> 4.1'
 # Use sqlite3 as the database for Active Record
-group  :development, :test do
+group :development, :test do
   gem 'sqlite3', '1.3.7'
 end
 
@@ -20,7 +20,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -40,22 +40,25 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
-gem 'json'
+gem 'json', '1.8.0'
+gem 'json_pure', '1.5.3'
+gem 'iconv'
 gem 'kaminari'
 gem 'dalli'
 gem 'whenever'
 gem 'simple_form'
 group :development, :test do
-  gem 'rspec-rails', '3.0.0.beta1'
+  gem 'spring-commands-rspec'
+  gem 'rspec-rails', '3.0.0.beta2'
   gem 'rake_shared_context'
   gem 'capybara', '~> 2.2.1'
   gem 'selenium-webdriver'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'database_rewinder'
-  gem 'simplecov', :require => false
+  gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
-  gem 'coveralls', :require => false
+  gem 'coveralls', require: false
   gem 'brakeman'
   gem 'rails_best_practices'
   gem 'rubocop', '~> 0.23',  require: false
@@ -68,7 +71,7 @@ group :development, :test do
   gem 'parallel_tests'
   gem 'rake_shared_context'
 end
-gem 'spring' , '1.1.2'
+gem 'spring', '1.1.2'
 
 group :development, :test do
   gem 'pry-rails'
@@ -91,7 +94,7 @@ end
 gem 'heroku'
 
 # model info
-gem 'annotate', :git =>'https://github.com/ctran/annotate_models'
+gem 'annotate', git: 'https://github.com/ctran/annotate_models'
 
 # td
 gem 'td'
@@ -100,7 +103,7 @@ gem 'td-logger'
 # newrelic
 gem 'newrelic_rpm'
 
-# todo list generates
+# task list generates
 gem 'watson-ruby'
 
 # setting
@@ -155,4 +158,3 @@ gem "twitter-bootstrap-rails"
 
 # facebook graph api
 gem 'koala'
-

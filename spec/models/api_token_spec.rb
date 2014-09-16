@@ -13,7 +13,7 @@
 #  index_api_tokens_on_user_id  (user_id)
 #
 
-require 'spec_helper'
+require 'rails_helper'
 
 describe ApiToken do
   pending "add some examples to (or delete) #{__FILE__}"
