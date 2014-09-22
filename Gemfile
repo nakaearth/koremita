@@ -158,3 +158,6 @@ gem "twitter-bootstrap-rails"
 
 # facebook graph api
 gem 'koala'
+
+# dumpツール
+gem 'sigdump', :require => 'sigdump/setup'
