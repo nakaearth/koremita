@@ -28,13 +28,13 @@ FactoryGirl.define do
     image_path 'dog2.jpg'
     token '123245aaaaaa'
     secret SecureRandom.urlsafe_base64(124)
-  end
 
-  trait :facebook do
-    provider 'facebook'
-  end
+    trait :facebook do
+      provider 'facebook'
+    end
 
-  trait :developer do
-    provider 'developer'
+    trait :developer do
+      provider 'developer'
+    end
   end
 end

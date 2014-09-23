@@ -389,6 +389,7 @@ GEM
     sexp_processor (4.4.4)
     shoulda-matchers (2.7.0)
       activesupport (>= 3.0.0)
+    sigdump (0.2.2)
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -544,6 +545,7 @@ DEPENDENCIES
   selenium-webdriver
   settingslogic
   shoulda-matchers
+  sigdump
   simple_form
   simplecov
   simplecov-rcov

@@ -36,7 +36,7 @@ describe User do
         @user = current_user
       end
       it 'email address' do
-        expect(@user.email).to eq('test@gmail.com')
+        expect(@user.email).to match(/test/)
       end
     end
   end

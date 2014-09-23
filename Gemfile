@@ -160,4 +160,4 @@ gem "twitter-bootstrap-rails"
 gem 'koala'
 
 # dumpツール
-gem 'sigdump', :require => 'sigdump/setup'
+gem 'sigdump', require: 'sigdump/setup'
