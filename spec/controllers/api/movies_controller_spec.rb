@@ -25,7 +25,7 @@ describe Api::MoviesController, type: :controller do
         allow(mock_facebook_graph).to receive_messages(current_user_friends: friend_list)
         allow(FacebookGraph).to receive(:new).and_return(mock_facebook_graph)
 
-        # get :index
+        get :index
       end
 
       it '映画の一覧を返す' do
