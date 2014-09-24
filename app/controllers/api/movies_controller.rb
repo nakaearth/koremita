@@ -7,7 +7,8 @@ module Api
       @movies = []
       friends[0..3].each do |friend_uid|
         user = AuthProvider.find_by(uid: friend_uid).user
-        @movies <<  user.movies
+        movies = Movie.where(user: user)
+        @movies +=  movies
       end
     end
   end

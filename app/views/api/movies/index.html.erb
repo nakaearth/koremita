@@ -1,1 +1,8 @@
-@movies
+<table> 
+<%= @movies.each do |movie| %>
+  <tr>
+    <td> <%= movie.title %></td>
+    <td> <%= movie.photo %></td>
+  </tr>
+<% end %>
+</table>
