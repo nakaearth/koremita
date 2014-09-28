@@ -1,4 +1,14 @@
 GIT
+  remote: git@github.com:tkawa/hypermicrodata.git
+  revision: 092c81a5818c68afc0c45ce9206b79ddf72f57e0
+  specs:
+    hypermicrodata (0.0.3)
+      halibut
+      mechanize
+      multi_json
+      nokogiri
+
+GIT
   remote: https://github.com/ctran/annotate_models
   revision: 038b13c04e575cc0f0c89c702c994166c7dc9955
   specs:
@@ -127,6 +137,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    domain_name (0.5.21)
+      unf (>= 0.0.5, < 1.0.0)
     dotenv (0.11.1)
       dotenv-deployment (~> 0.0.2)
     dotenv-deployment (0.0.2)
@@ -186,6 +198,8 @@ GEM
     guard-spring (0.0.4)
       guard
       spring
+    halibut (0.5.0)
+      multi_json
     haml (4.0.5)
       tilt
     hashie (3.3.1)
@@ -197,6 +211,8 @@ GEM
     hike (1.2.3)
     hirb (0.7.2)
     hitimes (1.2.2)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
     httparty (0.13.1)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -231,6 +247,15 @@ GEM
     lumberjack (1.0.9)
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
+    mechanize (2.7.3)
+      domain_name (~> 0.5, >= 0.5.1)
+      http-cookie (~> 1.0)
+      mime-types (~> 2.0)
+      net-http-digest_auth (~> 1.1, >= 1.1.1)
+      net-http-persistent (~> 2.5, >= 2.5.2)
+      nokogiri (~> 1.4)
+      ntlm-http (~> 0.1, >= 0.1.1)
+      webrobots (>= 0.0.9, < 0.2)
     method_source (0.8.2)
     mime-types (2.3)
     mini_portile (0.6.0)
@@ -239,11 +264,14 @@ GEM
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    net-http-digest_auth (1.4)
+    net-http-persistent (2.9.4)
     netrc (0.7.7)
     newrelic_rpm (3.9.4.245)
     nio4r (0.5.0)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
+    ntlm-http (0.1.1)
     oauth (0.4.7)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
@@ -453,6 +481,9 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.6)
     versioncake (2.5.0)
       actionpack (>= 3.2)
       activesupport (>= 3.2)
@@ -465,6 +496,7 @@ GEM
       equalizer (~> 0.0, >= 0.0.9)
     watson-ruby (1.6.3)
       json
+    webrobots (0.1.1)
     websocket (1.2.1)
     whenever (0.9.2)
       activesupport (>= 2.3.4)
@@ -513,6 +545,7 @@ DEPENDENCIES
   guard-rubocop
   guard-spring
   heroku
+  hypermicrodata!
   iconv
   itunes-search-api
   jbuilder (~> 2.0)

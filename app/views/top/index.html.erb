@@ -1,5 +1,20 @@
 
-
-movie一覧
+<% cache @movies do %>
+  <% paginate @movies %>
+  <div class='movie_list'>
+    <% @movies.each do |movie| %>
+      <div id="<%=movie.id %>" class="movie">
+        <div id="movie_menu" class="movie_category_<%=movie.category %>">
+          <%= link_to '詳細', koremita_movie_path(movie) %>
+        </div>
+        <br/>
+        <%= cl_image_tag(movie.photo, width: 80, height: 80, crop: :fill) %>
+        <%= movie.title %>
+        <br/>
+        <%= movie.format_created_at %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 
 
