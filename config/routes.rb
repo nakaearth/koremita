@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   post "/auth/:provider/callback" => "sessions#create" if Rails.env.development?
   get "/auth/failure" => "sessions#failuer"
 
+  namespace :api do
+    resources :movies, only: [:index], default: { format: 'json' }
+  end
+
   namespace :koremita do
     resources :movies do
       collection do

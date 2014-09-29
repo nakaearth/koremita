@@ -1,3 +1,5 @@
+require 'hypermicrodata'
+
 module Api
   class FriendsMovieCrowler
     def get_items(url)

@@ -4,9 +4,6 @@ module Koremita
 
     def index
       @movies = Movie.page(params[:page]).per(20)
-      # グラフAPIから友達のIDをランダムに幾つか取得し、その情報から
-      # 友達が投稿したものをレコメンドする
-      FacebookGraph.new(current_user.facebook_provider.token)
     end
 
     def my_movies
