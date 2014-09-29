@@ -163,7 +163,7 @@ gem 'koala'
 gem 'sigdump', require: 'sigdump/setup'
 
 # html to jsonのgem
-gem 'hypermicrodata', git: 'git@github.com:tkawa/hypermicrodata.git'
+gem 'hypermicrodata', git: 'git@github.com:tkawa/hypermicrodata.git', group: [:development, :test
 
 # スペルチェック
 gem 'did_you_mean', group: [:development, :test]
