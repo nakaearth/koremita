@@ -165,7 +165,7 @@ gem 'sigdump', require: 'sigdump/setup'
 # html to jsonのgem
 
 group :development, :test do
-  gem 'hypermicrodata', git: 'git@github.com:tkawa/hypermicrodata.git'
+  # gem 'hypermicrodata', git: 'git@github.com:tkawa/hypermicrodata.git'
   # スペルチェック
   gem 'did_you_mean'
 end
