@@ -21,5 +21,6 @@ namespace :crawler do
     end
     doc = Nokogiri::HTML.parse html, nil, charset
     puts doc.title
+    # TODO: 映画情報を取得し内容、画像をDBに取得する
   end
 end
