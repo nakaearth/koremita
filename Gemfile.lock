@@ -529,6 +529,7 @@ DEPENDENCIES
   koala
   newrelic_rpm
   nio4r (= 0.5.0)
+  nokogiri
   omniauth-facebook
   omniauth-twitter
   parallel_tests

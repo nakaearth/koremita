@@ -59,7 +59,7 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
   gem 'coveralls', require: false
-  gem 'brakeman'
+  gem 'brakeman', require: false
   gem 'rails_best_practices'
   gem 'rubocop', '~> 0.23',  require: false
   gem 'rubocop-checkstyle_formatter', require: false
@@ -162,10 +162,12 @@ gem 'koala'
 # dumpツール
 gem 'sigdump', require: 'sigdump/setup'
 
-# html to jsonのgem
-
 group :development, :test do
+  # html to jsonのgem
   # gem 'hypermicrodata', git: 'git@github.com:tkawa/hypermicrodata.git'
   # スペルチェック
   gem 'did_you_mean'
 end
+
+# nokogiri
+gem 'nokogiri'
