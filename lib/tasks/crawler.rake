@@ -7,6 +7,7 @@ namespace :crawler do
   task latest_movies: :environment do
     logger = ActiveSupport::Logger.new('log/crawler.log')
     crawl 'http://eiga.com/now/'
+    logger.info '最新映画取得開始'
   end
 
   private
