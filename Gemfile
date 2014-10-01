@@ -47,6 +47,8 @@ gem 'kaminari'
 gem 'dalli'
 gem 'whenever'
 gem 'simple_form'
+
+# テスト関連
 group :development, :test do
   gem 'spring-commands-rspec'
   gem 'rspec-rails', '3.0.0.beta2'
@@ -70,9 +72,12 @@ group :development, :test do
   gem 'terminal-notifier-guard'
   gem 'parallel_tests'
   gem 'rake_shared_context'
+  gem 'stackprof'
+  gem 'stackprof-webnav'
 end
 gem 'spring', '1.1.2'
 
+# 開発補助
 group :development, :test do
   gem 'pry-rails'
   #  gem 'pry-byebug'

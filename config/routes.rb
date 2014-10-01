@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get "/auth/failure" => "sessions#failuer"
 
   namespace :api do
-    resources :movies, only: [:index], default: { format: 'json' }
+    # resources :movies, only: [:index], default: { format: 'json' }
+    resources :movies, only: [:index]
   end
 
   namespace :koremita do

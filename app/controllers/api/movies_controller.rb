@@ -1,7 +1,7 @@
 module Api
-  class MoviesController < ApplicationController
+  class MoviesController < ApiApplicationController
     def index
-      @movies = Movie.per(20).page(params[:page])
+      @movies = Movie.page(params[:page]).per(20)
     end
   end
 end

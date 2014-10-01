@@ -12,14 +12,14 @@ module Api
     describe '最新の映画情報を表示' do
       context '1ページ目の場合' do
         it 'ステータス OK が返ってくる' do
-          # get :index
-          # expect(response.status).to eq(200)
+          get :index
+          expect(response.status).to eq(200)
         end
 
         it '20件表示される' do
-          # get :index
-          # expect(assigns[:movies]).not_to be_nil
-          # expect(assigns[:movies].size).to eq(20)
+          get :index
+          expect(assigns[:movies]).not_to be_nil
+          expect(assigns[:movies].size).to eq(20)
         end
       end
     end
