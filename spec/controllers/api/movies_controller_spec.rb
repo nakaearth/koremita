@@ -29,11 +29,11 @@ module Api
         before do
           get :index, page: 2
         end
-        
+
         it 'ステータス OK が返ってくる' do
           expect(response.status).to eq(200)
         end
-        
+
         it '10件表示される' do
           expect(assigns[:movies]).not_to be_nil
           expect(assigns[:movies].size).to eq(10)
