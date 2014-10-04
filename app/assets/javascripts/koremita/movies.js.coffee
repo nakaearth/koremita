@@ -2,5 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 http = require 'http'
-http.get { host:  "http://koremita.herokuapp.com/" },  (res)  -> console.log res.statusCode
+http.get { host:  "http://koremita.herokuapp.com/" },
+  (res)  -> alert res.statusCode
 
