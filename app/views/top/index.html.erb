@@ -1,7 +1,7 @@
 
 <% cache @movies do %>
   <% paginate @movies %>
-  <div class='movie_list'>
+  <div class='movie_list' id='movie_list'>
     <% @movies.each do |movie| %>
       <div id="<%=movie.id %>" class="movie">
         <div id="movie_menu" class="movie_category_<%=movie.category %>">
