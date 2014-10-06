@@ -9,3 +9,4 @@ positionOfNewBlock = (e) ->
   x = e.pageX - canvas.position().left
   y = e.pageY - canvas.position().top 
   [x, y]
+
