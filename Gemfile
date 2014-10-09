@@ -176,3 +176,6 @@ end
 
 # nokogiri
 gem 'nokogiri'
+
+# controllerの変数にJavascriptからアクセスする
+gem 'gon'
