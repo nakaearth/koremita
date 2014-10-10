@@ -63,6 +63,7 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'brakeman', require: false
   gem 'rails_best_practices'
+  gem 'request_store'
   gem 'rubocop', '~> 0.23',  require: false
   gem 'rubocop-checkstyle_formatter', require: false
   gem 'guard'

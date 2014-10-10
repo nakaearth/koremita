@@ -31,8 +31,4 @@ class Movie < ActiveRecord::Base
   def save_search_data
     Search::Connection.connect.save self unless Rails.env.test?
   end
-
-  def to_hash
-    { id: id, title: title, description: description, user_id: user_id }
-  end
 end

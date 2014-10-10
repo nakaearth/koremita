@@ -17,8 +17,8 @@ Rails.application.routes.draw do
       collection do
         get 'my_movies'
       end
-      resources :photos
-      resources :comments
+      resources :photos, only: [:new, :create]
+      resources :comments, except: [:show]
     end
     resources :search_movies, only: [:create]
   end
