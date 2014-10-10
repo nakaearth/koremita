@@ -58,14 +58,22 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'database_rewinder'
+
+# コードカバレッジ
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
+
   gem 'coveralls', require: false
-  gem 'brakeman', require: false
-  gem 'rails_best_practices'
   gem 'request_store'
+
+# コーディング規約チェック
   gem 'rubocop', '~> 0.23',  require: false
   gem 'rubocop-checkstyle_formatter', require: false
+
+# 良い書き方しているかチェック 
+  gem 'rails_best_practices'
+  
+  # テスト、コードチェックを自動で別プロセスでやる
   gem 'guard'
   gem 'guard-rspec', '~> 0.4.2'
   gem 'guard-spring'
@@ -73,9 +81,16 @@ group :development, :test do
   gem 'terminal-notifier-guard'
   gem 'parallel_tests'
   gem 'rake_shared_context'
+
+  # プロファイリング
   gem 'stackprof'
   gem 'stackprof-webnav'
+
+  # 静的解析
+  gem 'rubycritic', :require => false
+  gem 'brakeman', require: false
 end
+
 gem 'spring', '1.1.2'
 
 # 開発補助
