@@ -5,7 +5,7 @@ $(function() {
   return $("div#movie_list").dblclick(function(e) {
     var block, x, y, _ref;
     _ref = positionOfNewBlock(e), x = _ref[0], y = _ref[1];
-    block = $("<div class='block' style='left: " + x + "px; top: " + y + "px;' />");
+    block = $("<div class='block' style='left: " + x + "px; top: " + y + "px;'>gon.movie.title ");
     return $(e.target).append(block);
   });
 });
