@@ -1,7 +1,7 @@
 $ ->
-  $("div#movie_list").dblclick (e) ->
+  $("div#movie_list").click (e) ->
     [x, y] = positionOfNewBlock(e)
-    block = $("<div class='block' style='left: #{x}px; top: #{y}px;'>gon.movie.title ")
+    block = $("<div class='block' style='left: #{x}px; top: #{y}px;'>#{gon.user_name}</div>")
     $(e.target).append(block)
 
 positionOfNewBlock = (e) ->
