@@ -25,7 +25,7 @@ after_failure:
 deploy:
   provider: heroku
   api_key:
-    secure: Km9WleCBJqKsRWoxFxhH5m42gimSmLQHNNwv9OnbUKMB/203Ug/dn+uc31RULOi2swWInShPLc188Pv058km/eh1rrKVNW8/ttGOYz+k7wgThN1tWCjwLdEwvNa7EbOdVq5qpMe0tzLHHgATfAhP6prNX5a+k8qZGyu+h6KJCvo=
+    secure: 3433e2807ccbf3e51e0cd78029462d8b99ed3902
   app: koremita
   on:
     repo: nakaearth/koremita

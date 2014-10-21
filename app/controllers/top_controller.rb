@@ -3,6 +3,7 @@ class TopController < ApplicationController
 
   def index
     @movies = Movie.page(params[:page]).per(20)
-    # TODO: ここにmovieの取得処理を記述
+    @users = User.all
+    gon.user_name = @users[0].name
   end
 end

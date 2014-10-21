@@ -91,7 +91,10 @@ group :development, :test do
   gem 'brakeman', require: false
 end
 
+# コマンド実行速度強化
 gem 'spring', '1.1.2'
+
+# assetsのログを圧縮
 
 # 開発補助
 group :development, :test do
@@ -100,6 +103,7 @@ group :development, :test do
   gem 'pry-doc'
   gem 'awesome_print'
   gem 'better_errors'
+  gem 'quiet_assets'
 end
 
 group :production do
